@@ -1,7 +1,8 @@
 """Re-run the certificate in a scratch directory and compare every output with the shipped one.
 
 usage: python certificate/verify_all.py [--quick] [--keep]
-  --quick  skip the slowest step (local_sieve/test_local_sieve.py, about 1.5 min)
+  --quick  skip the two slowest steps: regenerating blocks.npz (~40 s, ~260 MB RAM) and
+           local_sieve/test_local_sieve.py (~1.5 min)
   --keep   keep the scratch directory (its path is printed)
 
 The shipped files are never touched: every script runs with the scratch directory as the
@@ -12,7 +13,8 @@ current directory. Comparisons are exact, except that
   * out_analytic.txt was written before analytic.py printed "(A-s)" instead of "(16-s)"
     (A = 16 for odd N); the label is normalised, every number is compared as is.
 check_blocks.py runs only if the primesieve CLI is found (PATH or PRIMESIEVE=...).
-Exit status 0 iff SHA256SUMS verifies and every comparison passes.  Total time about 5 min.
+Skipped steps are listed in the final line.
+Exit status 0 iff SHA256SUMS verifies and every comparison passes.  Total time about 7 min.
 """
 import hashlib, os, re, shutil, subprocess, sys, tempfile, time
 import numpy as np
@@ -22,9 +24,11 @@ sys.stdout.reconfigure(line_buffering=True)
 CERT = os.path.dirname(os.path.abspath(__file__))
 RIG = os.path.join(CERT, "rigoroso")
 PY = sys.executable
-TIME = re.compile(r"\b\d+(\.\d+)?s\b")
+# no bytecode in the shipped directories; no inherited parity setting
+BASE_ENV = {k: v for k, v in os.environ.items() if k != "GB_PARITY"} | {"PYTHONDONTWRITEBYTECODE": "1"}
+TIME = re.compile(r"\b(build|certification|total) \d+s\b")
 WARN = re.compile(r"^\S*\.py:\d+: \w*Warning:.*\n(?:[ \t]+.*\n)?", re.M)
-fails = []
+fails, skipped = [], []
 
 
 def check(name, ok):
@@ -34,14 +38,14 @@ def check(name, ok):
 
 
 def norm(text, label=False):
-    text = TIME.sub("<t>", WARN.sub("", text))
+    text = TIME.sub(r"\1 <t>", WARN.sub("", text))
     return text.replace("(A-s)", "(16-s)") if label else text
 
 
 def run(args, out=None, env=None):
     t = time.time()
     r = subprocess.run([PY, *args], cwd=WORK, capture_output=True, text=True,
-                       env={**os.environ, **(env or {})})
+                       env={**BASE_ENV, **(env or {})})
     if out:
         with open(os.path.join(WORK, out), "w") as f:
             f.write(r.stdout + r.stderr)
@@ -59,7 +63,7 @@ def same_text(new, old, label=False):
 
 def same_npz(new, old):
     a, b = np.load(os.path.join(WORK, new)), np.load(old)
-    check(f"{os.path.relpath(old, CERT)}", set(a) == set(b) and all(np.array_equal(a[k], b[k]) for k in a))
+    check(f"{os.path.relpath(old, CERT)}", set(a) == set(b) and all(a[k].dtype == b[k].dtype and np.array_equal(a[k], b[k]) for k in a))
 
 
 def same_bytes(new, old):
@@ -67,11 +71,7 @@ def same_bytes(new, old):
     check(f"{os.path.relpath(old, CERT)}", h(os.path.join(WORK, new)) == h(old))
 
 
-if __name__ == "__main__":
-    quick, keep = "--quick" in sys.argv, "--keep" in sys.argv
-    WORK = tempfile.mkdtemp(prefix="goldbach_verify_")
-    print(f"scratch directory: {WORK}")
-
+def main(quick):
     print("[1] hashes")
     r = subprocess.run(["sha256sum", "-c", "--quiet", "SHA256SUMS"], cwd=CERT, capture_output=True, text=True)
     check("SHA256SUMS", r.returncode == 0)
@@ -82,9 +82,16 @@ if __name__ == "__main__":
         same_text("out_check_blocks.txt", os.path.join(RIG, "out_check_blocks.txt"))
     else:
         print("  skip primesieve CLI not found")
+        skipped.append("check_blocks.py (no primesieve)")
+    if quick:
+        skipped.append("primes_blocks.py")
+    else:
+        run([os.path.join(RIG, "primes_blocks.py"), "1e10"], "out_primes_blocks.txt")
+        same_npz("blocks.npz", os.path.join(RIG, "blocks.npz"))
 
     print("[3] finite cover")
     covers = [("3,5", "1e8", "interval", {}), ("3", "1e10", "interval", {}), ("3,5", "1e8", "envelope", {}),
+              ("3", "1e10", "envelope", {}),
               ("3", "1e8", "uniform:1.146", {}), ("3,5", "1e8", "uniform:sup", {}),
               ("3,5", "1e8", "interval", {"GB_PARITY": "even"})]
     for q, x, mode, env in covers:
@@ -114,12 +121,24 @@ if __name__ == "__main__":
         run([os.path.join(CERT, "crosscheck", f"crosscheck_{s}.py")], f"out_crosscheck_{s}.txt")
         same_text(f"out_crosscheck_{s}.txt", os.path.join(CERT, "crosscheck", f"out_crosscheck_{s}.txt"))
 
-    if not quick:
+    if quick:
+        skipped.append("test_local_sieve.py")
+    else:
         print("[7] algebra of Appendix A")
         run([os.path.join(CERT, "local_sieve", "test_local_sieve.py"), "300"], "out_test_local_sieve.txt")
         same_text("out_test_local_sieve.txt", os.path.join(CERT, "local_sieve", "out_test_local_sieve.txt"))
 
-    if not keep:
-        shutil.rmtree(WORK)
-    print(f"\n{'ALL CHECKS PASSED' if not fails else f'{len(fails)} FAILED: ' + '; '.join(fails)}")
+
+if __name__ == "__main__":
+    quick, keep = "--quick" in sys.argv, "--keep" in sys.argv
+    WORK = tempfile.mkdtemp(prefix="goldbach_verify_")
+    print(f"scratch directory: {WORK}")
+
+    try:
+        main(quick)
+    finally:
+        if not keep:
+            shutil.rmtree(WORK)
+    print(f"\n{'ALL CHECKS PASSED' if not fails else f'{len(fails)} FAILED: ' + '; '.join(fails)}"
+          f"{'  (skipped: ' + '; '.join(skipped) + ')' if skipped else ''}")
     sys.exit(1 if fails else 0)

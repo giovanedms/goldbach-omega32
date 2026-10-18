@@ -51,4 +51,4 @@ b65ccf37cf1fabb8be81cc37fe912377009e598961e50813835c8d0cb5bce71b  ./rigoroso/out
 f44c4b01fddeb9b4b6e933fe291daedf3b84247dce68b24abe6490bce1c44b9a  ./rigoroso/rlib.py
 0acb487e5dd3bffef14ce2c5a9b358d41cf19b06e53015349af49c713f236c5a  ./rigoroso/run_cover.py
 1a4c5d3e71fc9f51421b31dc5384afba0bfe8a7f9018fc9c509224935f8e77f5  ./rigoroso/test_local.py
-54bf041bbea3da0dbedc4e80807548453db84c3480285d09c0eaf5af5ae46ca7  ./verify_all.py
+04178b520fc349db846ffd36aec5979547bba8a004d735a9d491ed873cb1532a  ./verify_all.py

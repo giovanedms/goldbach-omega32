@@ -53,13 +53,14 @@ No GPU needed. Times below are on one CPU core of the author's workstation.
 ## Verifying everything in one command
 
 ```bash
-python certificate/verify_all.py          # about 5 min; --quick skips Appendix A test (~1.5 min)
+python certificate/verify_all.py          # about 7 min; --quick skips the two slowest steps (~2.5 min)
 ```
 
-It checks `SHA256SUMS`, re-runs every step below in a temporary directory (the shipped
-files are never touched) and compares each output with the shipped one: the cell files
-(`cells_*.npz`) and `data_*.json` must be identical, the text outputs identical up to run
-times and Python warning lines. It exits with status 0 only if every check passes. On a
+It checks `SHA256SUMS`, re-runs steps 1-7 below in a temporary directory (the shipped
+files are never touched) and compares each output with the shipped one: `blocks.npz`, the
+cell files (`cells_*.npz`) and `data_*.json` must be identical, the text outputs identical
+up to run times and Python warning lines. Skipped steps (no `primesieve`, or `--quick`)
+are named in the last line. It exits with status 0 only if every check passes. On a
 fresh clone with a fresh virtual environment (18 October 2026) all checks passed; with
 unpinned packages (`mpmath` 1.4.1) the outputs were also identical.
 
@@ -80,6 +81,7 @@ python check_blocks.py
 python run_cover.py 3,5 1e8 interval      # main chain, ~20-40 s
 python run_cover.py 3 1e10 interval       # alternative chain, ~43 s
 python run_cover.py 3,5 1e8 envelope      # scenario E, ~60 s
+python run_cover.py 3 1e10 envelope       # scenario E, alternative chain (Table 3), ~55 s
 python run_cover.py 3 1e8 uniform:1.146   # scenario U (expected to fail), ~40-55 s
 python run_cover.py 3,5 1e8 uniform:sup   # scenario U, sup of the per-cell K (expected to fail), ~40 s
 GB_PARITY=even python run_cover.py 3,5 1e8 interval   # even N, ~70 s (writes *_even outputs)
