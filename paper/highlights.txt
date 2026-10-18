@@ -1,6 +1,6 @@
 Highlights
 - Every N >= 2 is a sum a+b with Omega(ab) <= 32, improving the bound 33
-- The explicit sieve bound is proved with the dimension condition at one level
+- Both parities of N are certified in ball arithmetic
 - Per-interval dimension constants and pre-sieving by 3 and 5 close the odd case
 - The finite range is certified in ball arithmetic over 117,415 intervals
 - The certificate is public, deterministic and reproducible

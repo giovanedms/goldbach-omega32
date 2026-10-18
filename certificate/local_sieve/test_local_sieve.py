@@ -2,7 +2,8 @@
 """Checks of the Lambda^- Lambda^2 lower bound under the LOCAL dimension condition.
 
 (A1)-(A3) are exact rational checks (with the weights w(d) replaced by rational approximations);
-(A4), (A4a), (A5) are floating-point checks with relative tolerance 1e-9. Proposition 4.4 is not tested.
+(A4), (A4a), (A5), (A6) are floating-point checks with absolute tolerance <= 1e-9; (A6) checks
+Proposition 4.4 and Theorem 4.1 in the range s >= 2k+3 (kappa = 2, smallest K allowed at z).
 Checks every link of Appendix A for the actual sequence
 a_n = n(N-n)/2 (N odd) or n(N-n) (N even), pre-sieved by Q, and for random densities:
 

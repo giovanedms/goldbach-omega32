@@ -15,11 +15,11 @@ whose verification scripts are at
 The proof stays inside Campbell's framework; the new ingredients are a per-interval
 dimension constant, per-interval sieve parameters and pre-sieving by 3 and 5. The
 intermediate range (117 415 intervals for odd N, 118 322 for even N) is certified in
-ball arithmetic by the code here. Appendix A of the paper proves that the explicit
-Friedlander–Iwaniec lower bound holds with the dimension condition imposed only at the
-sifting level, which is the reading Campbell's argument requires;
-`certificate/local_sieve/test_local_sieve.py` tests every step of that proof in exact
-rational arithmetic.
+ball arithmetic by the code here. For completeness, Appendix A of the paper gives a
+self-contained proof of the explicit Friedlander–Iwaniec lower bound with the dimension
+condition imposed only at the sifting level; `certificate/local_sieve/test_local_sieve.py`
+checks the algebra of that proof numerically (partly in exact rational arithmetic, partly
+in floating point).
 
 The paper is a **preprint, to be submitted**. Status and DOI will be added here.
 
@@ -31,7 +31,7 @@ The paper is a **preprint, to be submitted**. Status and DOI will be added here.
 | `certificate/rigoroso/` | The certificate: exact prime-block data (`primes_blocks.py`, `blocks.npz`), ball-arithmetic library `rlib.py`, finite cover `run_cover.py`, analytic range `analytic.py`, local-lemma tests `test_local.py`, outputs `out_*.txt`, `data_*.json`, `cells_*.npz` |
 | `certificate/crosscheck/` | Separate re-verification (AI-written, internal consistency) (`crosscheck_local.py`, `crosscheck_cells.py`, `crosscheck_rs.py`) and outputs |
 | `certificate/gate1/` | Separate float64 reimplementation (AI-written, internal consistency), outputs |
-| `certificate/local_sieve/` | `test_local_sieve.py`, exact rational test of every step of Appendix A (Theorem 4.1) |
+| `certificate/local_sieve/` | `test_local_sieve.py`, numerical check of the algebra of Appendix A (Theorem 4.1), and its output |
 | `certificate/rankin/` | `rk.py`, numeric check of the Rankin step (paper Proposition 4.4) |
 | `certificate/campbell_repro/` | Outputs and timings of Campbell's three scripts (regression for Ω ≤ 33). His code is not included, see `THIRD_PARTY_NOTICES.md` |
 | `certificate/SHA256SUMS` | SHA-256 of every file in `certificate/` |
@@ -73,9 +73,9 @@ python analytic.py 3 1e9
 GB_PARITY=even python analytic.py 3,5 1e8
 # 5) brute force of the local lemmas and float vs. rigorous comparison (~40 s)
 python test_local.py
-# 6) independent re-verification (~10 s)
+# 6) separate (AI-written) re-verification (~10 s)
 python ../crosscheck/crosscheck_local.py && python ../crosscheck/crosscheck_cells.py && python ../crosscheck/crosscheck_rs.py
-# 7) exact rational test of the sieve inequality of Appendix A (~1 min)
+# 7) numerical check of the algebra of Appendix A (~2 min)
 python ../local_sieve/test_local_sieve.py 300
 ```
 

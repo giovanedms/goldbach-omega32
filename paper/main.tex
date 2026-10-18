@@ -454,6 +454,13 @@ amounts to a uniform constant, which fails here
 moot.
 \end{remark}
 
+Let $h(p)=g(p)/(1-g(p))$ for $p\in\cP$, extended multiplicatively to
+square-free integers composed of primes of $\cP$, and for $U\ge1$ put
+$I(U,z)=\sum_{d\mid P(z),\,d\ge U}h(d)$; note that
+$V(z)^{-1}=\sum_{d\mid P(z)}h(d)$. Proposition~\ref{prop:rankinK} gives the
+Rankin bound for $I(U,z)$ with general $K$, using the dimension condition
+only at the level $z$; it is the analytic input of Theorem~\ref{thm:local}.
+
 \begin{remark}\label{rem:evidence}
 The argument of Appendix~\ref{app:sieve} is Selberg's $\Lambda^-\Lambda^2$
 construction as presented in Blight's thesis~\cite[\S\S2.2--2.3]{Blight2010}
@@ -463,20 +470,14 @@ that quotation by Proposition~\ref{prop:rankinK}, which uses the condition
 at the level $z$ only.
 \end{remark}
 
-Let $h(p)=g(p)/(1-g(p))$ for $p\in\cP$, extended multiplicatively to
-square-free integers composed of primes of $\cP$, and for $U\ge1$ put
-$I(U,z)=\sum_{d\mid P(z),\,d\ge U}h(d)$; note that
-$V(z)^{-1}=\sum_{d\mid P(z)}h(d)$. Proposition~\ref{prop:rankinK} gives the
-Rankin bound for $I(U,z)$ with general $K$, using the dimension condition
-only at the level $z$; it is the analytic input of Theorem~\ref{thm:local}.
 
 \begin{proposition}\label{prop:rankinK}
-Fix $z$ and let $g$ satisfy $0<g(p)<1$ for $p\in\cP$. Put
+Fix $z$, let $\kappa>0$ and $K\ge1$, and let $g$ satisfy $0<g(p)<1$ for $p\in\cP$. Put
 $\cL_z(t)=\sum_{t\le p<z,\,p\in\cP}-\log(1-g(p))$ and suppose
 \[
   \cL_z(t)\le\kappa\log\frac{\log z}{\log t}+\log K\qquad(2\le t<z).
 \]
-Let $\kappa>0$, $K\ge1$, $k=\kappa+\log K$ and $u=\log U/\log z$. If $u\ge k$, then
+Let $k=\kappa+\log K$ and $u=\log U/\log z$. If $u\ge k$, then
 \[
   I(U,z)V(z)\le e^{-k}\Bigl(\frac{ek}{u}\Bigr)^{u}.
 \]
@@ -832,8 +833,8 @@ A separate floating-point implementation, not importing the main code
 ($147\,347$ geometric cells with $\varepsilon=10^{-4}$, up to exactly
 $10^8$), finds the minimum $+1.1188$ on $(10342.337,\,10343.371]$ with no
 failing cell. A per-prime evaluation without Jensen bounds (own sieve,
-mpmath) agrees with the certificate within $2\cdot10^{-8}$ on $7$ cells,
-and on each of them the certificate is the smaller value, as it must be. The identity of Lemma~\ref{lem:identity} was checked exactly
+mpmath) agrees with the certificate within $2\cdot10^{-8}$ on $7$ cells
+when the same constant $K_I$ is used. The identity of Lemma~\ref{lem:identity} was checked exactly
 (rational arithmetic) for $859$ odd $N$ and all $d\mid2\cdot7\cdot11\cdot13\cdot17$,
 and Lemma~\ref{lem:quad} by brute force for odd $N<1500$ and $60$ values
 of $N$ near $30031$, with no violation; these checks cover only small odd $N$.
@@ -1120,16 +1121,16 @@ This is~\cite[(2.3)]{Blight2010}. Using $g(p)\le h(p)$ and putting $m=pd$,
 \[
   V(D,z)\ge\sum_mh(m)\Bigl(y_m^2-\sum_{p\mid m}(y_{m/p}-y_m)^2\Bigr).
 \]
-If $m\le Y_0/z$, then $\psi(m/p)=\psi(m)=1$; if $m\ge Yz$, then $m/p>Y_0$ and
-$\psi(m/p)=\psi(m)=0$; in both cases the inner sum vanishes. If $Y_0/z<m<Yz$, the
+If $m\le Y_0/z$, then $\psi(m/p)=\psi(m)=1$; if $m\ge Y_0z$, then $m/p>Y_0$ and
+$\psi(m/p)=\psi(m)=0$; in both cases the inner sum vanishes. If $Y_0/z<m<Y_0z$, the
 Lipschitz property gives
 $\sum_{p\mid m}(y_{m/p}-y_m)^2\le J^{-2}\sum_{p\mid m}(\log p/\log z)^2
 \le J^{-2}\log m/\log z$, as $p<z$. Dropping $y_m^2\ge0$ on this range,
 \[
-  J^2V(D,z)\ \ge\sum_{m\le Y_0/z}h(m)-\frac{\log(Yz)}{\log z}\sum_{m>Y_0/z}h(m)
-  \ \ge\ V(z)^{-1}-\frac{\log(Yz^2)}{\log z}\,I(Y_0/z,z),
+  J^2V(D,z)\ \ge\sum_{m\le Y_0/z}h(m)-\frac{\log(Y_0z)}{\log z}\sum_{m>Y_0/z}h(m)
+  \ \ge\ V(z)^{-1}-\frac{\log(Y_0z^2)}{\log z}\,I(Y_0/z,z),
 \]
-and $\log(Yz^2)/\log z=(s+3)/2$. (In~\cite[\S2.3]{Blight2010} the
+and $\log(Y_0z^2)/\log z=(s+3)/2$. (In~\cite[\S2.3]{Blight2010} the
 normalisation is written $J=\sum_{d\le Y_0}h(d)$; the argument only needs
 $\theta_1=1$ and $J\le V(z)^{-1}$, which hold for the $J$ above.)
 
@@ -1168,7 +1169,7 @@ $d<D$ and the inequality $S(\cA,z)\ge\sum_d\lambda_d|\cA_d|$ are checked in
 exact rational arithmetic; the bound of A.3, Proposition~\ref{prop:rankinK}
 and the conclusion $S(\cA,z)\ge XV(z)F(s,k)-2R_4(\cA,D)$ (with $\kappa=2$
 and the smallest $K$ allowed at this $z$) are checked in floating point
-with a relative tolerance of $10^{-9}$, the last two in the $20\,328$ cases
+with an absolute tolerance of $10^{-9}$, the last two in the $20\,328$ cases
 with $s\ge2k+3$, of which $11\,181$ have $F(s,k)>0$. The test checks the
 algebra; it is not part of the proof.
 
@@ -1238,7 +1239,7 @@ f44c4b01fddeb9b4b6e933fe291daedf3b84247dce68b24abe6490bce1c44b9a  rlib.py
 0acb487e5dd3bffef14ce2c5a9b358d41cf19b06e53015349af49c713f236c5a  run_cover.py
 84483ca099c5029ab112e445ab48e26542f2cf9af4f2770745d56628c7732356  analytic.py
 4e901d77dfc171bce886f9924b9d8a0e59eb26b0b517a7ec53198cb7c552d86f  primes_blocks.py
-f87ba8e8369686cc06c1db203828e79f5f70a8b90f0bf1cdf20fc91b858365f8  test_local_sieve.py
+5a34c90bec944f239fdb33e49739f5b67747c90ff43f37a2dcba4d72b940d6ac  test_local_sieve.py
 5e21da3a192ba96e952c4e29602894e695703b6a7c49a7526e93fd5c97457ee1  out_test_local_sieve.txt
 \end{verbatim}
 \endgroup
