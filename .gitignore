@@ -14,3 +14,5 @@ paper/*.synctex.gz
 # Regenerable by certificate/rigoroso/primes_blocks.py (see README)
 profiles_dump.csv
 .DS_Store
+paper/*.spl
+paper/build.log

@@ -7,7 +7,7 @@
       "affiliation": "Instituto Tecnológico de Aeronáutica (ITA)"
     }
   ],
-  "description": "Code, outputs and SHA-256 manifest of the rigorous (ball-arithmetic) finite-range certificate, together with the preprint, for the result that, assuming the local reading of the dimension condition (Hypothesis 4.1 of the paper), every integer N >= 2 can be written as N = a + b with positive integers a, b and Omega(ab) <= 32. This improves the bound Omega(ab) <= 33 of P. J. Campbell (arXiv:2608.09488).",
+  "description": "Code, outputs and SHA-256 manifest of the rigorous (ball-arithmetic) finite-range certificate, together with the preprint, for the result that every integer N >= 2 can be written as N = a + b with positive integers a, b and Omega(ab) <= 32. This improves the bound Omega(ab) <= 33 of P. J. Campbell (arXiv:2608.09488). Licence: the code is MIT; the paper text and figures (paper/) are all rights reserved by the author and are included as a preprint. The research and the code were produced with the assistance of Claude Opus 5.5 (Anthropic); see the paper's sections on the use of AI tools.",
   "license": "MIT",
   "access_right": "open",
   "keywords": [

@@ -24,7 +24,6 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{hypothesis}[theorem]{Hypothesis}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
@@ -65,15 +64,17 @@
 We prove that every integer $N\ge 2$ can be written as $N=a+b$ with
 positive integers $a,b$ such that $\Omega(ab)\le 32$, where $\Omega$
 counts prime factors with multiplicity. This improves the bound
-$\Omega(ab)\le 33$ of Campbell. The argument stays inside Campbell's
+$\Omega(ab)\le33$ of Campbell. The argument stays inside Campbell's
 framework, the explicit Friedlander--Iwaniec lower-bound sieve applied to
 the products $n(N-n)$. Three elementary reductions show that only odd $N$
 need a new estimate, with sifting level $z=(N^2/8)^{1/32}$. We close that
 case with a per-interval dimension constant, per-interval sieve parameters
 and pre-sieving by both $3$ and $5$. The intermediate range is certified in ball arithmetic over
-$117\,415$ intervals, and the large range by a monotonicity argument. The
-proof uses the dimension condition at the sifting level, the same reading
-on which Campbell's bound relies.
+$117\,415$ intervals, and the large range by a monotonicity argument; the
+even case is certified in the same way. We also prove that the explicit
+Friedlander--Iwaniec lower bound holds when the dimension condition is
+imposed only at the sifting level, the reading that Campbell's argument
+requires.
 \end{abstract}
 
 \begin{keyword}
@@ -111,31 +112,32 @@ refinements: $K$ computed per interval; $s$ and $\delta$ optimised per
 interval; pre-sieving by $3$ and $5$; sharper constants~\cite[\S6]{Campbell2026}.
 
 \begin{theorem}\label{thm:main}
-Assume Hypothesis~\ref{hyp:local}, i.e.\ Theorem~\ref{thm:FI} with the
-dimension condition~\eqref{eq:dim} required at the sifting level under
-consideration. Then every integer $N\ge 2$ can be written as $N=a+b$ with
+Every integer $N\ge 2$ can be written as $N=a+b$ with
 $a,b$ positive integers and
 \[
   \Omega(ab)\le 32 .
 \]
 \end{theorem}
 
-Hypothesis~\ref{hyp:local} is the reading of the dimension condition
-stated in~\cite[(2.1)]{Campbell2026} (``for each value of $z$ under
-consideration''), and Campbell's bound $\Omega(ab)\le33$ already depends on
-it: the global reading, over all pairs $2\le w<z'$, forces $K\ge2$, which
-is incompatible with the constant $K=1.146$ of~\cite[Lemma~4.1]{Campbell2026}
-(Remark~\ref{rem:global}). Thus Theorem~\ref{thm:main} requires no
-hypothesis beyond the one used in~\C.
+Campbell applies Theorem~\ref{thm:FI} with the dimension condition read at
+the sifting level only (``for each value of $z$ under
+consideration''~\cite[(2.1)]{Campbell2026}); the global reading, over all
+pairs $2\le w<z'$, would force $K\ge2$, which is incompatible with his
+constant $K=1.146$ (Remark~\ref{rem:global}). Theorem~\ref{thm:local}
+proves that this local reading suffices; the proof, in
+Appendix~\ref{app:sieve}, follows Selberg's $\Lambda^-\Lambda^2$
+construction and needs the dimension condition only through a Rankin bound
+at the level $z$. The same argument removes this question from Campbell's
+proof of $\Omega(ab)\le33$.
 
 \paragraph{Where $33$ comes from}
 The bound $33$ comes only from odd $N$. With $z=N^{1/r}$ and $a_n<N^2$,
 \cite[Lemma~5.2]{Campbell2026} gives $\Omega(ab)<2r$ for even $N$ and
 $\Omega(ab)<2r+1$ for odd $N$; with $r=16.5$ this is $\le32$ and $\le33$
 respectively. Three elementary observations
-(Section~\ref{sec:reductions}) reduce the problem to odd $N$: for even
-$N$ beyond the prime-gap range, Campbell's proof already gives
-$\Omega(ab)\le32$; the prime-gap lemma \cite[Lemma~5.1]{Campbell2026}
+(Section~\ref{sec:reductions}) reduce the problem to an estimate at a
+level depending on the parity of $N$: for even $N$ the sifting level
+$z=(N^2/4)^{1/33}$ suffices, and this case has a wide margin; the prime-gap lemma \cite[Lemma~5.1]{Campbell2026}
 holds under $1854m<2^{M-1}$ instead of $1854m\le2^{M-2}$, which covers
 $N\le N_0$ with $M=32$; and for odd $N$ one has $a_n\le(N^2-1)/8$, so the
 level $z=(N^2/8)^{1/32}$, i.e.\ $N=\sqrt8\,z^{16}$, suffices. The odd case
@@ -200,7 +202,10 @@ where
 \end{equation}
 \end{theorem}
 
-We use Theorem~\ref{thm:FI} as stated in~\C.
+We do not use Theorem~\ref{thm:FI} as a black box: all applications go
+through Theorem~\ref{thm:local} below, which is proved in
+Appendix~\ref{app:sieve} and requires the dimension condition only at the
+level $z$.
 
 \subsection{The sequence}
 Fix $N\ge2$. For $1\le n\le N-1$ let $a_n=n(N-n)$ if $N$ is even and
@@ -256,7 +261,7 @@ establish $S(\cA,z)>0$, and \cite[Lemma~5.2]{Campbell2026} converts this
 into the bound on $\Omega(ab)$.
 
 \subsection{Inputs taken from the literature}\label{subsec:inherited}
-Besides Theorem~\ref{thm:FI} and Lemma~\ref{lem:rho}, the proof uses:
+Besides Theorem~\ref{thm:local} (proved here) and Lemma~\ref{lem:rho}, the proof uses:
 \begin{enumerate}
 \item[(H3)] Rosser--Schoenfeld~\cite[Theorem~5]{RS1962}:
   $\sum_{p\le x}1/p>\log\log x+B-\frac{1}{2\log^2x}$ for $x>1$, and
@@ -321,26 +326,32 @@ $1854m\le2^{30}=1073741824$ is false, so the hypothesis of
 
 \subsection{\texorpdfstring{Even $N$}{Even N}}
 
-\begin{proposition}\label{prop:even}
-For every even $N>N_0$ there are $a,b\ge1$ with $N=a+b$ and
-$\Omega(ab)\le32$.
-\end{proposition}
+\begin{lemma}\label{lem:even}
+Let $Q\in\{\{3\},\{3,5\}\}$, let $N>N_0$ be even and let
+$z:=(N^2/4)^{1/33}$, i.e.\ $N=2z^{16.5}$. If $S(\cA,z)>0$, then there are
+$a,b\ge1$ with $N=a+b$ and $\Omega(ab)\le32$.
+\end{lemma}
 
 \begin{proof}
-Cases~2 and~3 of the proof of \cite[Theorem~1.2]{Campbell2026} establish
-$S(\cA,z)>0$ with $Q=\{3\}$ and $z=N^{1/16.5}$ for every $N>N_0$. No step uses
-the parity of $N$: the bound $X\ge(N-1)/3$ holds for all $N$, and the
-bounds $g(2)=\frac12$, $g(p)\le2/p$ do not depend on $N$.
-\cite[Lemma~5.2]{Campbell2026} with $r=16.5$ then gives $\Omega(ab)<33$ for
-even $N$; Campbell states this explicitly in Cases~2 and~3.
+Since $N>N_0$ we have $z>(N_0^2/4)^{1/33}>36$, so $z>5$. As in the proof of
+Lemma~\ref{lem:odd} below, there is $n\in I_Q$ such that $a_n=n(N-n)$ has
+no prime factor less than $z$. Let $t=\Omega(a_n)$. Since
+$a_n\le N^2/4=z^{33}$, we have $z^t\le a_n\le z^{33}$, so $t\le33$, and
+$t=33$ would force $a_n=z^{33}$ with every prime factor equal to $z$; then
+$z$ is a prime and $(N/2)^2=z^{33}$ is a square, which is impossible since
+$33$ is odd. Hence $t\le32$, and with $a=n$, $b=N-n$ we have
+$\Omega(ab)=t\le32$.
 \end{proof}
 
 \begin{remark}\label{rem:even-float}
-Proposition~\ref{prop:even} inherits Campbell's finite verification, which
-is carried out in floating point with a cushion of $0.10$ in the logarithm.
-Reproducing the three scripts of~\cite{CampbellRepo} (tag \texttt{arxiv-v1})
-gives output identical to the versioned output, with $227$ intervals and
-minimal log-ratio $0.1000056$. We have not certified that computation.
+Campbell's own proof gives $\Omega(ab)\le32$ for even $N$ already, through
+\cite[Lemma~5.2]{Campbell2026} with $r=16.5$; its finite range, however, is
+verified in floating point with a cushion of $0.10$ in the logarithm
+(reproducing the scripts of~\cite{CampbellRepo}, tag \texttt{arxiv-v1},
+gives $227$ intervals and minimal log-ratio $0.1000056$). We do not use it:
+the even case is certified here at the level of Lemma~\ref{lem:even}
+(Proposition~\ref{prop:finite} and Proposition~\ref{prop:analytic}), with
+margins at least $5.02$.
 \end{remark}
 
 \subsection{\texorpdfstring{Odd $N$}{Odd N}}
@@ -382,17 +393,24 @@ In the computation we start from the floating-point number
 for which $8u_0^{32}\le N_0^2$ is checked in exact rational arithmetic;
 hence every $N>N_0$ has $z>u_0$.
 
+For even $N$ the same computation starts from
+$u_0^{\mathrm{e}}=36.454424943231$, for which $4(u_0^{\mathrm{e}})^{33}\le N_0^2$
+is checked in exact rational arithmetic.
+
 \begin{corollary}\label{cor:reduction}
-Theorem~\ref{thm:main} follows from Corollary~\ref{cor:small},
-Proposition~\ref{prop:even} and the statement
+Theorem~\ref{thm:main} follows from Corollary~\ref{cor:small} and the
+statement
 \[
   S(\cA,z)>0\quad\text{for every odd } N \text{ with }
-  z=(N^2/8)^{1/32}>u_0 .
+  z=(N^2/8)^{1/32}>u_0,\ \text{and every even } N \text{ with }
+  z=(N^2/4)^{1/33}>u_0^{\mathrm{e}} .
 \]
 \end{corollary}
 
-We prove it with $Q=\{3,5\}$. All bounds depend on $N$ only through $z$,
-so the proof is uniform in odd $N$.
+We prove it with $Q=\{3,5\}$. All bounds depend on $N$ only through $z$
+and the parity of $N$, so the proof is uniform in $N$ of each parity. We
+write $N=c_\pi z^{A_\pi}$ with $(c_\pi,A_\pi)=(\sqrt8,16)$ for odd $N$ and
+$(2,16.5)$ for even $N$.
 
 %% =====================================================================
 \section{The sieve input}\label{sec:sieve}
@@ -400,21 +418,27 @@ so the proof is uniform in odd $N$.
 
 \subsection{The dimension condition at the sifting level}\label{subsec:local}
 
-\begin{hypothesis}[local reading]\label{hyp:local}
-Fix $N$, hence $\cA$ and $g$, and a level $z=z(N)$. Theorem~\ref{thm:FI}
-holds at this $z$ with constants $\kappa=2$ and $K$ provided
-\[
+\begin{theorem}[the lower bound at a fixed level]\label{thm:local}
+Let $\cA$, $\cP$, $g$ and $r_d$ be as in Section~\ref{sec:notation}, fix
+$z\ge2$, and let $\kappa\ge0$ and $K\ge1$ be such that
+\begin{equation}\label{eq:dimlocal}
   \prod_{\substack{w\le p<z\\ p\in\cP}}(1-g(p))^{-1}
-  \le K\Bigl(\frac{\log z}{\log w}\Bigr)^{2}
+  \le K\Bigl(\frac{\log z}{\log w}\Bigr)^{\kappa}
   \qquad\text{for every } 2\le w<z,
-\]
-at this $z$ (not for all $z'\le z$).
-\end{hypothesis}
+\end{equation}
+at this $z$ only. Let $D\ge z$, $s=\log D/\log z$ and $k=\kappa+\log K$.
+If $s\ge2k+3$, then $S(\cA,z)\ge XV(z)F(s,k)-2R_4(\cA,D)$.
+\end{theorem}
 
-This is Definition~\ref{def:dim} as written
-in~\cite[(2.1)]{Campbell2026}. Campbell's Lemma~4.1(1) is stated ``for every $z\ge z_0$ and every $2\le w<z$'', and
-he explicitly uses ``the restrictions $z\ge z_0$ \ldots rather than
-estimates uniform over a larger range''~\cite[\S4]{Campbell2026}.
+Theorem~\ref{thm:local} is Theorem~\ref{thm:FI} with the dimension
+condition required at the sifting level only, which is
+Definition~\ref{def:dim} as written in~\cite[(2.1)]{Campbell2026}; it is
+proved in Appendix~\ref{app:sieve}. Campbell's Lemma~4.1(1) is stated
+``for every $z\ge z_0$ and every $2\le w<z$'', and he explicitly uses ``the
+restrictions $z\ge z_0$ \ldots rather than estimates uniform over a larger
+range''~\cite[\S4]{Campbell2026}; Theorem~\ref{thm:local} is exactly what
+that use requires. From now on all applications of the sieve are through
+Theorem~\ref{thm:local} with $\kappa=2$.
 
 \begin{remark}[the global reading]\label{rem:global}
 Suppose~\eqref{eq:dim} were required for all pairs $2\le w<z'$, for every
@@ -424,44 +448,22 @@ $z'\to5^+$ one obtains $K\ge5/3$.) Hence~\C{} already relies on a reading
 that is not global. A hypothetical reading ``for all
 $z'\in[z_0,z]$'' would save~\C{} but not the present argument, since it
 amounts to a uniform constant, which fails here
-(Section~\ref{subsec:uniform}); that reading is not natural in~\cite{FI2010},
-which does not know $z_0$.
+(Section~\ref{subsec:uniform}). Theorem~\ref{thm:local} makes the question
+moot.
 \end{remark}
 
-\begin{remark}[evidence for the local reading]\label{rem:evidence}
-\begin{enumerate}
-\item In Blight's thesis~\cite[Definition~2.1.1, p.~6]{Blight2010} (advisor
-  H.~Iwaniec), $g$ is supported on $P(z)$ and the condition is assumed
-  ``for any $w\ge2$ with $w<z$'', with $z$ the sifting level.
-\item In~\cite[\S2.3, pp.~13--14]{Blight2010}, with
-  $I(X,z)=\sum_{d\mid P(z),\,d\ge X}h(d)$, $h(p)=g(p)/(1-g(p))$ and
-  $Y_B:=\sqrt{D/z}$ (so that $s=2\log Y_B/\log z+1$), one has
-  \[
-    J^2V(D,z)V(z)\ge1-\frac{\log(Y_Bz^2)}{\log z}\,I(Y_B/z,z)V(z),
-  \]
-  and, citing \cite[p.~111]{FI2010},
-  $I(X,z)V(z)\le e^{-\kappa}(2e\kappa/t)^{t/2}$ for $t=2\log X/\log z>2\kappa$.
-  With $X=Y_B/z$ one gets $t=s-3$ and $\log(Y_Bz^2)/\log z=(s+3)/2$, which
-  gives $1-\frac{s+3}{2e^{\kappa}}\bigl(\frac{2e\kappa}{s-3}\bigr)^{(s-3)/2}$:
-  this is $F(s,k)$ of~\eqref{eq:F} with $\kappa$ in place of $k$. The
-  combinatorial step uses only $h(p)\ge g(p)$; the dimension condition
-  enters only through the bound for $I(X,z)$, at the same $z$.
-\item Friedlander~\cite[Appendix]{Friedlander2026} writes that ``the density
-  function $g$ satisfies the condition [\ldots, (5.38)] of dimension
-  $\kappa=2$'', which identifies the condition in~\cite{FI2010} as its
-  equation~(5.38).
-\item Against: Dudek and Dunn write the condition ``for all $z>w\ge2$'' and
-  remark that a better $K$ might be obtained by reworking the proof so that
-  a different range of $w$ and $z$ could be taken (preprint versions~1
-  and~4 of~\cite{DudekDunn}). This
-  suggests that the book's statement is global and that restricting it
-  requires re-reading the proof.
-\end{enumerate}
+\begin{remark}\label{rem:evidence}
+The argument of Appendix~\ref{app:sieve} is Selberg's $\Lambda^-\Lambda^2$
+construction as presented in Blight's thesis~\cite[\S\S2.2--2.3]{Blight2010}
+(advisor H.~Iwaniec), where the dimension condition enters only through
+the bound for $I(X,z)V(z)$ quoted from~\cite[p.~111]{FI2010}. We replace
+that quotation by Proposition~\ref{prop:rankinK}, which uses the condition
+at the level $z$ only.
 \end{remark}
 
-Proposition~\ref{prop:rankinK} redoes the Rankin bound for $I(X,z)$ with
-general $K$, using the dimension condition only at the level $z$. It is
-supporting evidence, not used in the proof of Theorem~\ref{thm:main}.
+Proposition~\ref{prop:rankinK} gives the Rankin bound for $I(X,z)$ with
+general $K$, using the dimension condition only at the level $z$; it is
+the analytic input of Theorem~\ref{thm:local}.
 
 \begin{proposition}\label{prop:rankinK}
 Fix $z$ and let $g$ satisfy $0<g(p)<1$ for $p\in\cP$. Put
@@ -562,7 +564,7 @@ each containing at least $\lfloor(N-1)/15\rfloor>(N-1)/15-1$ elements of
 $[1,N-1]$. Therefore $X>3\bigl((N-1)/15-1\bigr)=(N-1)/5-3$.
 \end{proof}
 
-Theorem~\ref{thm:FI} applies without change, since it is stated for an
+Theorem~\ref{thm:local} applies without change, since it is stated for an
 arbitrary sequence and set of sifting primes, and $0<g(p)<1$ on $\cP$.
 Moreover,
 \begin{equation}\label{eq:V}
@@ -589,7 +591,7 @@ Let $I=(u,v]$ with $u\ge u_0$ and let
   \Bigl(\frac{\log w}{\log z}\Bigr)^{2}.
 \]
 Then for every $N$ and every $z\in I$, the condition of
-Hypothesis~\ref{hyp:local} holds at $z$ with $K=K_I$, and $K_I\ge1$.
+Theorem~\ref{thm:local} holds at $z$ with $\kappa=2$ and $K=K_I$, and $K_I\ge1$.
 Moreover, the supremum is approached as $z\to u^+$ or $z\to q^+$ with
 $q\in I\cap\cP$, and it suffices to take $w=2$ or $w\in\cP$.
 \end{lemma}
@@ -604,7 +606,7 @@ $(\log w)^2$ increases. This is the argument of Case~3 of
 \cite[Lemma~4.1]{Campbell2026}.
 \end{proof}
 
-Since $K_I$ satisfies the condition at every $z\in I$, Theorem~\ref{thm:FI}
+Since $K_I$ satisfies~\eqref{eq:dimlocal} at every $z\in I$, Theorem~\ref{thm:local}
 applies at each $z\in I$ with $k_I=2+\log K_I$; no monotonicity of $F$ in
 $k$ is needed.
 
@@ -657,25 +659,25 @@ Thus $V(z)\ge e^{-L(z)}$ for every $N$.
 \subsection{A margin on an interval}
 
 \begin{lemma}\label{lem:margin}
-Assume Hypothesis~\ref{hyp:local}. Let $I=(u,v]$ with $u\ge u_0$, let
+Let $I=(u,v]$ with $u\ge u_0$ ($u\ge u_0^{\mathrm{e}}$ for even $N$), let
 $K_I$ be as in Lemma~\ref{lem:Kcell}, $k_I=2+\log K_I$, and let
 $s\ge2k_I+3$ with $F(s,k_I)>0$ and $0<\delta<1$. Put
-$X_{\mathrm{lo}}(u)=(\sqrt8\,u^{16}-1)/5-3$ and
+$X_{\mathrm{lo}}(u)=(c_\pi u^{A_\pi}-1)/5-3$ and
 \[
   m_I(s,\delta)=\log X_{\mathrm{lo}}(u)-L(v)+\log F(s,k_I)-\log(2C_Q)
   -s\delta\log v-E_\delta(v).
 \]
-If $m_I(s,\delta)>0$, then $S(\cA,z)>0$ for every odd $N$ with
-$z=(N^2/8)^{1/32}\in I$.
+If $m_I(s,\delta)>0$, then $S(\cA,z)>0$ for every $N$ of the given
+parity with $N=c_\pi z^{A_\pi}$, $z\in I$.
 \end{lemma}
 
 \begin{proof}
 Let $z\in I$ and $D=z^s$. By Lemma~\ref{lem:Kcell} and
-Theorem~\ref{thm:FI}, $S(\cA,z)\ge XV(z)F(s,k_I)-2R_4(\cA,D)$. Each factor
+Theorem~\ref{thm:local}, $S(\cA,z)\ge XV(z)F(s,k_I)-2R_4(\cA,D)$. Each factor
 is bounded at the appropriate end of $I$:
 \begin{itemize}
 \item $X\ge X_{\mathrm{lo}}(u)$ by Lemma~\ref{lem:X}, since
-  $N=\sqrt8z^{16}>\sqrt8u^{16}$;
+  $N=c_\pi z^{A_\pi}>c_\pi u^{A_\pi}$;
 \item $V(z)\ge e^{-L(v)}$, since $V$ decreases in $z$, the primes below $z$
   are among those below $v$, and $g\le g^*$;
 \item $2R_4(\cA,z^s)\le2C_Qv^{s\delta}e^{E_\delta(v)}$ by~\eqref{eq:rankin},
@@ -696,10 +698,13 @@ Lemma~\ref{lem:Kcell}, such that $s_I\ge2k_I+3$, $F(s_I,k_I)>0$ and
 \]
 for every cell. The minimum is attained on the cell
 $(10342.3367,\,10343.3709]$, with $s=14.30443$, $\delta=107/128$ and
-$K=1.002250$.
+$K=1.002250$. For even $N$ the same construction on $(u_0^{\mathrm{e}},10^8]$
+gives $118\,322$ cells with $m_I\ge5.024006$, attained on
+$(2802.7202,\,2803.0005]$ with $s=14.34590$, $\delta=102/128$ and
+$K=1.005873$.
 \end{proposition}
 
-Code and output are listed under Data availability.
+Code and output are listed under the Code availability statement.
 
 \paragraph{Cells}
 Geometric cells of ratio $1+10^{-4}$ from $u_0$ to $10^6$; above $10^6$,
@@ -872,33 +877,33 @@ it enters the margin with a positive sign, so dropping it is conservative.
 \end{proof}
 
 \begin{proposition}\label{prop:analytic}
-Assume Hypothesis~\ref{hyp:local}. Let $Q=\{3,5\}$, $Z=10^8$,
+Let $Q=\{3,5\}$, $Z=10^8$,
 $k=2+\log K_{\mathrm{an}}$, and fix $s$ and $\alpha$ with $s\ge2k+3$ and
-$(16-s)\log Z>10$. Let $M(t)$ denote the logarithm of the ratio of
+$(A_\pi-s)\log Z>10$. Let $M(t)$ denote the logarithm of the ratio of
 $XV(z)F(s,k)$ to $2R_4(\cA,z^s)$. Then $M(t)\ge M_{\mathrm{lo}}(\log Z)$ for
 all $t\ge\log Z$, where
 \begin{multline*}
-  M_{\mathrm{lo}}(t)=16t+\log\sqrt8-\log5+\log(1-16/N)+\log c_V-10\log t
+  M_{\mathrm{lo}}(t)=A_\pi t+\log c_\pi-\log5+\log(1-16/N)+\log c_V-10\log t
   +\log F(s,k)\\-\log(2C_Q)-st+\alpha s-8(B-\sigma_Q)-\frac{4}{t^2}-8(e^\alpha-1).
 \end{multline*}
 With the constants of Table~\ref{tab:analytic},
-$M_{\mathrm{lo}}(\log Z)\ge+0.654075$; hence $S(\cA,z)>0$ for every odd $N$
-with $z\ge10^8$.
+$M_{\mathrm{lo}}(\log Z)\ge+0.654075$ for odd $N$ and $\ge+9.517845$ for
+even $N$; hence $S(\cA,z)>0$ for every $N$ with $z\ge10^8$.
 \end{proposition}
 
 \begin{proof}
-By Lemma~\ref{lem:A1}, Theorem~\ref{thm:FI} applies at every $z\ge Z$ with
-$k=2+\log K_{\mathrm{an}}$. Write $N=\sqrt8e^{16t}$ and
+By Lemma~\ref{lem:A1}, Theorem~\ref{thm:local} applies at every $z\ge Z$ with
+$k=2+\log K_{\mathrm{an}}$. Write $N=c_\pi e^{A_\pi t}$ and
 $X\ge(N-16)/5$ (Lemma~\ref{lem:X}). Lemmas~\ref{lem:A2} and~\ref{lem:A3}
 give $M(t)\ge M_{\mathrm{lo}}(t)$; the factor $\log^{-2}z$ from $V$
 contributes $-2\log t$ and $R_4$ contributes $-8\log t$. Then
-$M_{\mathrm{lo}}(t)=C_0+(16-s)t-10\log t-4/t^2+\log(1-16/N)$ with a
+$M_{\mathrm{lo}}(t)=C_0+(A_\pi-s)t-10\log t-4/t^2+\log(1-16/N)$ with a
 constant $C_0$, and
 \[
-  \frac{d}{dt}\Bigl[(16-s)t-10\log t-\frac{4}{t^2}\Bigr]
-  =(16-s)-\frac{10}{t}+\frac{8}{t^3}>0
+  \frac{d}{dt}\Bigl[(A_\pi-s)t-10\log t-\frac{4}{t^2}\Bigr]
+  =(A_\pi-s)-\frac{10}{t}+\frac{8}{t^3}>0
 \]
-whenever $(16-s)t>10$, which holds for $t\ge\log Z$; the term
+whenever $(A_\pi-s)t>10$, which holds for $t\ge\log Z$; the term
 $\log(1-16/N)$ is increasing in $t$. Hence $M_{\mathrm{lo}}$ is increasing
 on $[\log Z,\infty)$, with no grid. The value $M_{\mathrm{lo}}(\log Z)$ is
 evaluated in ball arithmetic.
@@ -909,7 +914,9 @@ evaluated in ball arithmetic.
 \caption{Analytic range: constants and certified $M_{\mathrm{lo}}(\log Z)$.
 Rows marked ``fixed $K$'' replace $K_{\mathrm{an}}$ by the indicated
 constant. Negative values are not certified bounds; they say that the
-method fails with these parameters.}
+method fails with these parameters. The values of $s$ and $\alpha$ are
+rounded to five decimals; the certified bounds use the double-precision
+values printed by \texttt{analytic.py}.}
 \label{tab:analytic}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{llllllr}
@@ -917,6 +924,7 @@ method fails with these parameters.}
 $Q$ & $Z$ & $K_{\mathrm{ex}}(Z)\le$ & $K_{\mathrm{an}}$ & $c_V\ge$ & $s$;\ $\alpha$ & $M_{\mathrm{lo}}(\log Z)$\\
 \midrule
 $\{3,5\}$ & $10^8$    & $1.000061$ & $1.005973$ & $2.068826$ & $14.24820$;\ $0.57719$ & $\mathbf{+0.654075}$\\
+$\{3,5\}$, even $N$ & $10^8$ & $1.000061$ & $1.005973$ & $2.068826$ & $14.24815$;\ $0.57719$ & $\mathbf{+9.517845}$\\
 $\{3\}$   & $10^8$    & $1.037250$ & $1.043382$ & $1.241296$ & $14.39135$;\ $0.58719$ & $-2.264$\\
 $\{3\}$   & $10^9$    & $1.037245$ & $1.042087$ & $1.242838$ & $14.38041$;\ $0.58643$ & $\mathbf{+0.371416}$\\
 $\{3\}$   & $10^{10}$ & $1.037243$ & $1.041163$ & $1.243941$ & $14.37186$;\ $0.58583$ & $+3.134105$\\
@@ -928,7 +936,7 @@ $\{3\}$, fixed $K=1.146$ & $10^{10}$ & & & & & $-5.280$\\
 \end{tabular}}
 \end{table}
 
-For $Q=\{3,5\}$ and $Z=10^8$ one has $(16-s)\log Z=32.269>10$, and
+For $Q=\{3,5\}$ and $Z=10^8$ one has $(A_\pi-s)\log Z=32.269$ (odd) and $41.481$ (even), both $>10$, and
 $s\ge2k+3$ holds with room to spare. Figure~\ref{fig:analytic} shows
 $M_{\mathrm{lo}}$ as a function of $z$.
 
@@ -948,13 +956,14 @@ positive from $10^9$.}
 
 \subsection{Completion of the proof}
 
-Let $N\ge2$. If $N\le N_0$, Corollary~\ref{cor:small} applies. If $N>N_0$ is
-even, Proposition~\ref{prop:even} applies. If $N>N_0$ is odd, then
-$z=(N^2/8)^{1/32}>u_0$. If $z\le10^8$, $z$ lies in a cell of
-Proposition~\ref{prop:finite} and Lemma~\ref{lem:margin} gives
-$S(\cA,z)>0$; if $z\ge10^8$, Proposition~\ref{prop:analytic} gives
-$S(\cA,z)>0$. In both cases Lemma~\ref{lem:odd} yields $a,b$ with $N=a+b$
-and $\Omega(ab)\le32$. \qed
+Let $N\ge2$. If $N\le N_0$, Corollary~\ref{cor:small} applies. If $N>N_0$
+is odd, put $z=(N^2/8)^{1/32}>u_0$; if $N>N_0$ is even, put
+$z=(N^2/4)^{1/33}>u_0^{\mathrm{e}}$. If $z\le10^8$, $z$ lies in a cell of
+Proposition~\ref{prop:finite} for the parity of $N$ and
+Lemma~\ref{lem:margin} gives $S(\cA,z)>0$; if $z\ge10^8$,
+Proposition~\ref{prop:analytic} gives $S(\cA,z)>0$. Lemma~\ref{lem:odd}
+(odd $N$) or Lemma~\ref{lem:even} (even $N$) then yields $a,b$ with
+$N=a+b$ and $\Omega(ab)\le32$. \qed
 
 %% =====================================================================
 \section{Remarks}\label{sec:remarks}
@@ -983,6 +992,7 @@ $K$ & $Q$ & up to & cells & failing & min.\ margin & cell & $s$ & $\delta$ & $K$
 \midrule
 I & $\{3,5\}$ & $10^8$    & $117\,415$ & $0$ & $\mathbf{+1.118347}$ & $(10342.3367,\,10343.3709]$ & $14.30443$ & $107/128$ & $1.002250$\\
 I & $\{3\}$   & $10^{10}$ & $122\,023$ & $0$ & $+0.079236$ & $(15822.3670,\,15823.9492]$ & $14.44136$ & $109/128$ & $1.039801$\\
+I, even $N$ & $\{3,5\}$ & $10^8$ & $118\,322$ & $0$ & $+5.024006$ & $(2802.7202,\,2803.0005]$ & $14.34590$ & $102/128$ & $1.005873$\\
 E & $\{3,5\}$ & $10^8$    & $117\,415$ & $0$ & $+1.005101$ & same as I & & & $1.005973$\\
 E & $\{3\}$   & $10^{10}$ & $122\,023$ & $0$ & $+0.036773$ & same as I & & & $1.041163$\\
 U ($K=1.146$)    & $\{3\}$   & $10^8$ & $117\,415$ & $85\,342$ & $-3.405836$ & $z\approx1.18\cdot10^5$ & & & \\
@@ -993,8 +1003,8 @@ U ($K=1.089970$) & $\{3,5\}$ & $10^8$ & $117\,415$ & $71\,182$ & $-1.671836$ & $
 
 The envelope variant E, in which $K(z)=\sup_{z''\ge z}K(z'')$, has the
 literal form ``for every $z\ge z_a$'' of the lemmas of~\C. It has the same
-logical status as the per-cell reading: both depend only on
-Hypothesis~\ref{hyp:local}.
+logical status as the per-cell reading: both rest on
+Theorem~\ref{thm:local}.
 
 \subsection{A uniform constant does not suffice}\label{subsec:uniform}
 With Campbell's uniform $K=1.146$ and optimised $s,\delta$, the finite range
@@ -1002,7 +1012,7 @@ fails on $85\,342$ of $117\,415$ cells; with $Q=\{3,5\}$ and the uniform
 $K=1.089970$ (the supremum over the range) it still fails
 (Table~\ref{tab:margins}). So does the analytic range with fixed constants
 (Table~\ref{tab:analytic}). The per-cell constant, hence
-Hypothesis~\ref{hyp:local}, is essential.
+Theorem~\ref{thm:local}, is essential.
 
 \subsection{\texorpdfstring{Why $\Omega(ab)\le31$ does not follow}{Why 31 does not follow}}
 Table~\ref{tab:31} gives exploratory floating-point profiles (a grid of
@@ -1044,7 +1054,37 @@ Figure~\ref{fig:margin}).}
 \end{figure}
 
 %% =====================================================================
-\section*{Data and code availability}
+\section*{Use of AI tools in the research}
+%% =====================================================================
+
+Claude Opus~5.5 (Anthropic), used through the Claude Code agent
+environment, took part in the research as follows. It first proposed and
+derived the three reductions of Section~\ref{sec:reductions}; the
+adaptation to $Q=\{3,5\}$ (Lemmas~\ref{lem:identity}--\ref{lem:X}); the
+reduction of the per-cell constant to finitely many candidates
+(Lemma~\ref{lem:Kcell}); Lemmas~\ref{lem:A1}--\ref{lem:A3} and the
+monotonicity argument of Proposition~\ref{prop:analytic}; the analysis of
+the reading of~\eqref{eq:dim} in Section~\ref{subsec:local}, including
+the literature search behind Remark~\ref{rem:evidence};
+Proposition~\ref{prop:rankinK}; the proof of Theorem~\ref{thm:local} in
+Appendix~\ref{app:sieve}, including the case distinction on the sign of
+$F$, which was found by an exact rational test of each step
+(script \texttt{test\_local\_sieve.py}); and the
+treatment of even $N$ (Lemma~\ref{lem:even}). It wrote all the code of the certificate
+(prime sieve, ball-arithmetic bounds, cell cover, analytic range) and the
+scripts that draw Figures~\ref{fig:margin}--\ref{fig:31} directly from
+the certificate outputs. The checks described under ``Checks by separate
+implementations'' were written by separate instances of the same tool,
+which did not import the main code; their agreement is internal
+consistency, not independent human verification. The checks that do not
+rely on AI-written arithmetic are the comparison of prime counts and block
+sums with primesieve~12.17 and of $\pi(10^k)$, $k\le10$, with known
+values. The author checked every proof by hand; the certificate is
+deterministic and reproduces bit for bit from the published code
+(Code availability statement).
+
+%% =====================================================================
+\section*{Code availability statement}
 %% =====================================================================
 
 \begin{sloppypar}
@@ -1054,10 +1094,14 @@ contains: \texttt{primes\_blocks.py} (exact counts
 and sums of primes per block up to $10^{10}$), \texttt{check\_blocks.py}
 (comparison with primesieve), \texttt{rlib.py} (ball arithmetic),
 \texttt{run\_cover.py} (finite range), \texttt{analytic.py} (analytic
-range), \texttt{test\_local.py} (brute force of the local lemmas), and their
-outputs. Environment: Python 3.14.4, python-flint 0.9.0, numpy 2.5.4,
+range), \texttt{test\_local.py} (brute force of the local lemmas),
+\texttt{test\_local\_sieve.py} (exact test of Appendix~\ref{app:sieve}), and
+their outputs. Environment: Python 3.14.4, python-flint 0.9.0, numpy 2.5.4,
 mpmath 1.3.0, primesieve 12.17; no GPU. The main finite cover
-(\texttt{run\_cover.py 3,5 1e8 interval}) runs in about $40$\,s.
+(\texttt{run\_cover.py 3,5 1e8 interval}) runs in about $40$\,s; the even
+case is the same command with the environment variable
+\texttt{GB\_PARITY=even} (about $70$\,s), followed by
+\texttt{analytic.py 3,5 1e8}.
 Campbell's scripts~\cite{CampbellRepo} were re-run at commit
 \texttt{2755a58b6eb1\ldots} and reproduce the versioned output byte for
 byte. SHA-256 of the main files:
@@ -1066,12 +1110,15 @@ byte. SHA-256 of the main files:
 \begingroup\fontsize{7}{8.5}\selectfont
 \begin{verbatim}
 7e8eb38ada4507a5599631cd2511db23d1d81d9f501a29d8c5da5e8163b1566c  out_cover_Q35_interval.txt
+c1d879bed47e8b3ce647e62bb1b9657529ea7d96f051cb34b7745a221240bad8  out_cover_Q35_interval_even.txt
 9d4dba8e248b89e284dbb3e57e16f2474b03b72bbb8725c30db6fa90e677259b  out_cover_Q3_interval.txt
 b0d1624d1eb576a1ab9066db8abb06c54954598467d58a5e49382d23808bb0fa  out_analytic.txt
-9e0bb1855b6a009c2bc5752961eae66a95c64904a220655429fbe01e64565f4d  rlib.py
-9b3523413d3f70b9ff78a504c93ea44a1221022496badcfe035a0a2d1b40c10c  run_cover.py
-e84fedd32399b8f56965a03f4f4cf7c992de248f03493b447d9b83edd4489eb3  analytic.py
+ca269994cbf54fbb438422fd18c38bd1aad9e2f10dce3f940375fc64a3cdbe91  out_analytic_even.txt
+f44c4b01fddeb9b4b6e933fe291daedf3b84247dce68b24abe6490bce1c44b9a  rlib.py
+0acb487e5dd3bffef14ce2c5a9b358d41cf19b06e53015349af49c713f236c5a  run_cover.py
+84483ca099c5029ab112e445ab48e26542f2cf9af4f2770745d56628c7732356  analytic.py
 4e901d77dfc171bce886f9924b9d8a0e59eb26b0b517a7ec53198cb7c552d86f  primes_blocks.py
+a3836429b27e1e51c24002bdddc528274f01793f23cfe49781579efce709949b  test_local_sieve.py
 \end{verbatim}
 \endgroup
 
@@ -1080,11 +1127,16 @@ The author thanks Peter J.\ Campbell for making his verification scripts
 publicly available under the MIT licence, and for the list of refinements
 in~\cite[\S6]{Campbell2026}, three of which are used here.
 
-\section*{Declaration of generative AI and AI-assisted technologies in the writing process}
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
 
-During the preparation of this work the author used [NAME OF TOOL / SERVICE] in order to
-[REASON]. After using this tool/service, the author reviewed and edited the content as
-needed and takes full responsibility for the content of the publication.
+During the preparation of this work the author used Claude Opus~5.5
+(Anthropic), through the Claude Code agent environment, to draft the
+manuscript from a technical dossier of the proofs, and to organise and
+edit the text. The use of the same tool in the research itself is
+described in the section ``Use of AI tools in the research'' above.
+After using this tool, the author reviewed and edited the content as
+needed, checked the proofs by hand, and takes full responsibility for the
+content of the published article.
 
 \section*{Funding}
 This research did not receive any specific grant from funding agencies in the public,
@@ -1092,6 +1144,116 @@ commercial, or not-for-profit sectors.
 
 \section*{Declaration of competing interest}
 The author declares no competing interests.
+
+\appendix
+\section{Proof of Theorem~\ref{thm:local}}\label{app:sieve}
+
+Throughout this appendix $z$ is fixed, $\cA$, $\cP$, $g$, $X$, $r_d$ are as
+in Section~\ref{sec:notation}, and all divisors $d,e,m$ run over divisors
+of $P(z)$; they are square-free. Put $h(p)=g(p)/(1-g(p))>0$ for $p\mid P(z)$,
+extended multiplicatively, so that
+\[
+  V(z)^{-1}=\prod_{p\mid P(z)}(1+h(p))=\sum_{d\mid P(z)}h(d),\qquad
+  I(X,z)=\sum_{d\mid P(z),\,d\ge X}h(d).
+\]
+Let $D=z^s$ with $s\ge2k+3\ge3$ and $Y=\sqrt{D/z}=z^{(s-1)/2}\ge z$.
+
+\paragraph{A.1 Weights}
+Let $w(d)=\min\{1,\log(Y/d)/\log z\}$ for $d<Y$ and $w(d)=0$ for $d\ge Y$;
+then $0\le w\le1$, $w(1)=1$, and $\log d\mapsto w(d)$ is
+$(1/\log z)$-Lipschitz. Put $J=\sum_d h(d)w(d)$, so $1\le J\le V(z)^{-1}$,
+$y_d=w(d)/J$, and define $\rho_e$ by
+\begin{equation}\label{eq:rhoy}
+  g(e)\rho_e=\mu(e)\sum_{d:\,e\mid d}h(d)y_d .
+\end{equation}
+Then $\rho_1=\sum_dh(d)y_d=1$ and $\rho_e=0$ for $e\ge Y$. Moreover
+$|\rho_e|\le1$: since $h(e)/g(e)=\prod_{p\mid e}(1+h(p))=\sum_{t\mid e}h(t)$,
+\[
+  |\rho_e|=\frac1J\sum_{t\mid e}\ \sum_{f:\,(f,e)=1}h(t)h(f)\,w(ef)
+  \le\frac1J\sum_{t\mid e}\ \sum_{f:\,(f,e)=1}h(tf)\,w(tf)\le1,
+\]
+because $w$ is non-increasing, $tf\le ef$, and distinct pairs $(t,f)$ give
+distinct $d=tf$. M\"obius inversion of~\eqref{eq:rhoy} gives
+\begin{equation}\label{eq:Fe}
+  \sum_{m:\,e\mid m}g(m)\rho_m=\mu(e)h(e)y_e .
+\end{equation}
+
+\paragraph{A.2 The lower bound sieve}
+For every integer $a$,
+\[
+  \mathbf 1_{(a,P(z))=1}\ \ge\ \Bigl(1-\sum_{p\mid(a,P(z))}1\Bigr)
+  \Bigl(\sum_{d\mid(a,P(z))}\rho_d\Bigr)^2 ,
+\]
+since both sides equal $1$ if $(a,P(z))=1$, and otherwise the first factor
+is $\le0$. Summing over $n$ gives $S(\cA,z)\ge\sum_d\lambda_d|\cA_d|$ with
+\[
+  \lambda_d=\lambda^+_d-\sum_{p\mid d}\bigl(\lambda^+_d+\lambda^+_{d/p}\bigr),
+  \qquad
+  \lambda^+_d=\sum_{[d_1,d_2]=d}\rho_{d_1}\rho_{d_2},
+\]
+hence $S(\cA,z)\ge XV(D,z)-\sum_d|\lambda_d||r_d|$ with
+$V(D,z)=\sum_d\lambda_dg(d)$.
+
+\paragraph{A.3 The main term}
+Since $g([d_1,d_2])=g(d_1)g(d_2)/g((d_1,d_2))$ and
+$1/g(m)=\sum_{e\mid m}1/h(e)$, \eqref{eq:Fe} gives
+$\sum_{d_1,d_2}\rho_{d_1}\rho_{d_2}g([d_1,d_2])=\sum_eh(e)y_e^2$. For a
+fixed $p$, write $d_i=p^{\varepsilon_i}d_i'$ with $p\nmid d_i'$; then
+$g([p,d_1,d_2])=g(p)g([d_1',d_2'])$, and the same diagonalisation over
+$p\nmid e$, with $\sum_{e\mid m,\,p\nmid m}g(m)(\rho_m+\rho_{pm})
+=\mu(e)h(e)(y_e-y_{pe})$ by~\eqref{eq:Fe}, gives
+\begin{equation}\label{eq:VDz}
+  V(D,z)=\sum_dh(d)y_d^2-\sum_{p\nmid d}g(p)h(d)\bigl(y_d-y_{pd}\bigr)^2 .
+\end{equation}
+This is~\cite[(2.3)]{Blight2010}. Using $g(p)\le h(p)$ and putting $m=pd$,
+\[
+  V(D,z)\ge\sum_mh(m)\Bigl(y_m^2-\sum_{p\mid m}(y_{m/p}-y_m)^2\Bigr).
+\]
+If $m\le Y/z$, then $w(m/p)=w(m)=1$; if $m\ge Yz$, then $m/p>Y$ and
+$w(m/p)=w(m)=0$; in both cases the inner sum vanishes. If $Y/z<m<Yz$, the
+Lipschitz property gives
+$\sum_{p\mid m}(y_{m/p}-y_m)^2\le J^{-2}\sum_{p\mid m}(\log p/\log z)^2
+\le J^{-2}\log m/\log z$, as $p<z$. Dropping $y_m^2\ge0$ on this range,
+\[
+  J^2V(D,z)\ \ge\sum_{m\le Y/z}h(m)-\frac{\log(Yz)}{\log z}\sum_{m>Y/z}h(m)
+  \ \ge\ V(z)^{-1}-\frac{\log(Yz^2)}{\log z}\,I(Y/z,z),
+\]
+and $\log(Yz^2)/\log z=(s+3)/2$. (In~\cite[\S2.3]{Blight2010} the
+normalisation is written $J=\sum_{d\le Y}h(d)$; the argument only needs
+$\rho_1=1$ and $J\le V(z)^{-1}$, which hold for the $J$ above.)
+
+\paragraph{A.4 The remainder}
+For $d$ with $\omega(d)=\omega\ge1$, $|\lambda^+_d|\le3^{\omega}$ because
+$|\rho|\le1$, so $|\lambda_d|\le(\omega-1)3^{\omega}+\omega3^{\omega-1}
+=3^{\omega-1}(4\omega-3)\le1.38\cdot4^{\omega}\le2\tau_4(d)$, and
+$\lambda_1=1$. If $\lambda_d\ne0$, then $d\mid p\,d_1d_2$ with $p<z$ and
+$d_1,d_2<Y$, so $d<zY^2=D$. Hence $\sum_d|\lambda_d||r_d|\le2R_4(\cA,D)$,
+using $r_1=0$.
+
+\paragraph{A.5 Conclusion}
+Apply Proposition~\ref{prop:rankinK} with $X=Y/z$, so that
+$u=\log X/\log z=(s-3)/2\ge k$:
+\[
+  \frac{s+3}{2}\,I(Y/z,z)V(z)\le\frac{s+3}{2e^{k}}
+  \Bigl(\frac{2ek}{s-3}\Bigr)^{(s-3)/2}=1-F(s,k).
+\]
+If $F(s,k)\le0$, the claim $S(\cA,z)\ge XV(z)F(s,k)-2R_4(\cA,D)$ is
+trivial, since $S(\cA,z)\ge0$. If $F(s,k)>0$, A.3 gives
+$J^2V(D,z)V(z)\ge F(s,k)>0$, and $J\le V(z)^{-1}$ gives
+$V(D,z)\ge F(s,k)/(J^2V(z))\ge V(z)F(s,k)$. By A.2 and A.4,
+$S(\cA,z)\ge XV(z)F(s,k)-2R_4(\cA,D)$. The dimension condition was used
+only in Proposition~\ref{prop:rankinK}, at the level $z$. \qed
+
+\paragraph{Numerical check}
+Every step of A.1--A.5 was tested in exact rational arithmetic by the
+script \texttt{test\_local\_sieve.py} of the repository
+(directory \texttt{certificate/local\_sieve}): the identity
+\eqref{eq:VDz}, $|\rho_e|\le1$, $|\lambda_d|\le2\tau_4(d)$, the support
+$d<D$, the bound of A.3 and the final inequality, for $300$ random
+densities and for the sequences $\cA$ of this paper with $Q=\{3\}$ and
+$\{3,5\}$, odd and even $N$ up to $9999$ and several $z$ and $s$
+($8712$ cases), with no violation. Deliberately wrong variants of
+$\lambda_d$, of~\eqref{eq:VDz} and of the normalisation are rejected.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{refs}

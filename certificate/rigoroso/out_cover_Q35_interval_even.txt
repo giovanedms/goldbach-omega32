@@ -1,0 +1,14 @@
+# parity=even Q=(3, 5) XMAX=1e+08 mode=interval u0=36.454424943231 (<= z0*, checked exactly) cells=118322 first u=np.float64(36.454424943231) last v=np.float64(100000000.0)  build 56s
+# per-cell K (rigorous upper bounds): max K = 1.089970 on (42.9980,43.0023]
+# certification 2s; max |float approx - certified| = 1.23e-13
+RESULT cells=118322 failing(cert<=0)=0
+RESULT min certified margin = 5.024006 on (2802.7202,2803.0005] s=14.34590 delta=0.796875 K=1.005873
+  z in (36.5,100]: min cert +17.30916 on (96.991,97.000] s=15.1654 d=0.2031 K=1.024872  fails=0
+  z in (100,1e+03]: min cert +5.63869 on (886.963,887.052] s=14.3966 d=0.7344 K=1.008624  fails=0
+  z in (1e+03,1e+04]: min cert +5.02401 on (2802.720,2803.001] s=14.3459 d=0.7969 K=1.005873  fails=0
+  z in (1e+04,1e+05]: min cert +5.39368 on (10342.123,10343.157] s=14.3044 d=0.8359 K=1.002250  fails=0
+  z in (1e+05,1e+06]: min cert +7.23846 on (99994.155,100004.155] s=14.2673 d=0.8828 K=1.000400  fails=0
+  z in (1e+06,1e+07]: min cert +9.97496 on (1000000.000,1000200.000] s=14.2481 d=0.9062 K=1.000061  fails=0
+  z in (1e+07,1e+08]: min cert +13.22231 on (10000000.000,10005000.000] s=14.2361 d=0.9219 K=1.000123  fails=0
+# boundary Y=1e+08: L_hi=np.float64(5.09407258158328) (W(Y)>=0.0061329918)  K_exact(Y)<=1.000061
+# total 67s

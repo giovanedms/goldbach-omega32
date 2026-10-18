@@ -12,7 +12,7 @@ import rlib
 from rlib import RData, certify, optimise, z0_lower, hi, DELTAS
 
 Q = tuple(int(x) for x in sys.argv[1].split(",")); XMAX = int(float(sys.argv[2])); mode = sys.argv[3]
-tag = f"Q{''.join(map(str, Q))}_{mode.replace(':', '')}"
+tag = f"Q{''.join(map(str, Q))}_{mode.replace(':', '')}{rlib.SUFFIX}"
 out = open(f"out_cover_{tag}.txt", "w")
 def say(*a):
     s = " ".join(str(x) for x in a); print(s, flush=True); out.write(s + "\n"); out.flush()
@@ -21,7 +21,7 @@ R = RData(Q, XMAX)
 u0 = z0_lower()
 C = R.cells(u0)
 u, v, L, E, logK = C["u"], C["v"], C["L"], C["E"], C["logK"]
-say(f"# Q={Q} XMAX={XMAX:.3g} mode={mode} u0={u0!r} (<= z0*, checked exactly) cells={len(u)} "
+say(f"# {"parity=even " if rlib.PARITY == "even" else ""}Q={Q} XMAX={XMAX:.3g} mode={mode} u0={u0!r} (<= z0*, checked exactly) cells={len(u)} "
     f"first u={u[0]!r} last v={v[-1]!r}  build {time.time()-t0:.0f}s")
 assert np.all(u[1:] == v[:-1]) and u[0] == u0 and v[-1] == XMAX      # contiguous cover
 logK_cell_max = float(logK.max()); jm = int(np.argmax(logK))
@@ -62,5 +62,5 @@ if mode == "interval":
             Lh, lK = R.at_boundary(Y)
             data["boundaries"][str(Y)] = {"L_hi": Lh, "logKexact_hi": lK}
             say(f"# boundary Y={Y:.0e}: L_hi={Lh!r} (W(Y)>={math.exp(-Lh):.8g})  K_exact(Y)<={math.exp(lK):.6f}")
-    json.dump(data, open(f"data_Q{''.join(map(str, Q))}.json", "w"), indent=1)
+    json.dump(data, open(f"data_Q{''.join(map(str, Q))}{rlib.SUFFIX}.json", "w"), indent=1)
 say(f"# total {time.time()-t0:.0f}s")

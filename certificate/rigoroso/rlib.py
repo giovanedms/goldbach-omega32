@@ -25,6 +25,13 @@ N0 = 117465180365547648498934439
 DELTAS_NUM = list(range(26, 128))                 # delta = j/128 (dyadic, exact)
 DELTAS = [j / 128 for j in DELTAS_NUM]
 CQ = {(3,): arb(19) / 6, (3, 5): arb(11)}         # |r_d| <= C_Q 2^omega(d)   (paper Lemma 4.3 / RIGOROSO.md sec. 3)
+# Parity of N (env GB_PARITY): odd N -> a_n <= (N^2-1)/8, z = (N^2/8)^(1/32), N = sqrt8 z^16;
+#                              even N -> a_n <= N^2/4,     z = (N^2/4)^(1/33), N = 2 z^16.5.
+PARITY = os.environ.get("GB_PARITY", "odd")
+assert PARITY in ("odd", "even"), PARITY
+NC, NA = (arb(8).sqrt(), arb(16)) if PARITY == "odd" else (arb(2), arb(33) / 2)
+NC_f, NA_f = (math.sqrt(8), 16.0) if PARITY == "odd" else (2.0, 16.5)
+SUFFIX = "" if PARITY == "odd" else "_even"
 
 
 def hi(x):
@@ -69,11 +76,17 @@ def logF_np(s, k):
 
 
 def z0_lower():
-    """u0 = float <= z0* = (N0^2/8)^(1/32), checked exactly: 8 u0^32 <= N0^2."""
+    """u0 = float <= z0*, checked exactly. odd: z0* = (N0^2/8)^(1/32), 8 u0^32 <= N0^2;
+    even: z0* = (N0^2/4)^(1/33), 4 u0^33 <= N0^2."""
     from fractions import Fraction
-    x = ((arb(N0) ** 2 / 8).log() / 32).exp()
-    u0 = lo(x)
-    assert 8 * Fraction(u0) ** 32 <= Fraction(N0) ** 2
+    if PARITY == "odd":
+        x = ((arb(N0) ** 2 / 8).log() / 32).exp()
+        u0 = lo(x)
+        assert 8 * Fraction(u0) ** 32 <= Fraction(N0) ** 2
+    else:
+        x = ((arb(N0) ** 2 / 4).log() / 33).exp()
+        u0 = lo(x)
+        assert 4 * Fraction(u0) ** 33 <= Fraction(N0) ** 2
     return u0
 
 
@@ -173,8 +186,8 @@ class RData:
 
 
 def logX_lo_arb(u, Q):
-    """log of a lower bound for X valid for all odd N > sqrt(8) u^16 (RIGOROSO.md sec. 1, 3)."""
-    N = arb(8).sqrt() * arb(u) ** 16
+    """log of a lower bound for X valid for all N > NC u^NA of the chosen parity (RIGOROSO.md sec. 1, 3)."""
+    N = NC * arb(u) ** NA
     if Q == (3,):
         return ((N - 1) / 3).log()
     return ((N - 1) / 5 - 3).log()
@@ -195,7 +208,7 @@ def optimise(u, v, L, E, logK, Q, ns=160, chunk=4000):
     """float64 search of (s, delta) per cell; returns s (float), jd (int), approx margin."""
     n = len(u)
     xf, xs = (1 / 3, 0.0) if Q == (3,) else (1 / 5, 3.0)
-    logX = np.log((math.sqrt(8) * u ** 16 - 1) * xf - xs)
+    logX = np.log((NC_f * u ** NA_f - 1) * xf - xs)
     lC = math.log(2 * float(CQ[Q].mid()))
     lv = np.log(v)
     best = np.full(n, -np.inf); bs = np.zeros(n); bj = np.zeros(n, int)

@@ -5,11 +5,8 @@ Code, outputs and paper for **"Goldbach-type sums a+b=N with Ω(ab) ≤ 32"**
 
 ## Result
 
-**Theorem.** Assume Hypothesis 4.1 of the paper (the dimension condition of the
-Friedlander–Iwaniec sieve, read at the sifting level under consideration, which is
-the reading already used by Campbell). Then every integer N ≥ 2 can be written as
-N = a + b with positive integers a, b and **Ω(ab) ≤ 32**, where Ω counts prime
-factors with multiplicity.
+**Theorem.** Every integer N ≥ 2 can be written as N = a + b with positive
+integers a, b and **Ω(ab) ≤ 32**, where Ω counts prime factors with multiplicity.
 
 This improves the bound Ω(ab) ≤ 33 of P. J. Campbell, *A sharper explicit result for
 the sum of two almost primes*, [arXiv:2608.09488](https://arxiv.org/abs/2608.09488),
@@ -17,7 +14,12 @@ whose verification scripts are at
 <https://github.com/PeterJCampbell1/almost-prime-sum-verifications>.
 The proof stays inside Campbell's framework; the new ingredients are a per-interval
 dimension constant, per-interval sieve parameters and pre-sieving by 3 and 5. The
-intermediate range (117 415 intervals) is certified in ball arithmetic by the code here.
+intermediate range (117 415 intervals for odd N, 118 322 for even N) is certified in
+ball arithmetic by the code here. Appendix A of the paper proves that the explicit
+Friedlander–Iwaniec lower bound holds with the dimension condition imposed only at the
+sifting level, which is the reading Campbell's argument requires;
+`certificate/local_sieve/test_local_sieve.py` tests every step of that proof in exact
+rational arithmetic.
 
 The paper is a **preprint, to be submitted**. Status and DOI will be added here.
 
@@ -29,6 +31,7 @@ The paper is a **preprint, to be submitted**. Status and DOI will be added here.
 | `certificate/rigoroso/` | The certificate: exact prime-block data (`primes_blocks.py`, `blocks.npz`), ball-arithmetic library `rlib.py`, finite cover `run_cover.py`, analytic range `analytic.py`, local-lemma tests `test_local.py`, outputs `out_*.txt`, `data_*.json`, `cells_*.npz` |
 | `certificate/crosscheck/` | Independent re-verification (`crosscheck_local.py`, `crosscheck_cells.py`, `crosscheck_rs.py`) and outputs |
 | `certificate/gate1/` | Independent float64 reimplementation, outputs |
+| `certificate/local_sieve/` | `test_local_sieve.py`, exact rational test of every step of Appendix A (Theorem 4.1) |
 | `certificate/rankin/` | `rk.py`, numeric check of the Rankin step (paper §4.4) |
 | `certificate/campbell_repro/` | Outputs and timings of Campbell's three scripts (regression for Ω ≤ 33). His code is not included, see `THIRD_PARTY_NOTICES.md` |
 | `certificate/SHA256SUMS` | SHA-256 of every file in `certificate/` |
@@ -63,13 +66,17 @@ python run_cover.py 3,5 1e8 interval      # main chain, ~20-40 s
 python run_cover.py 3 1e10 interval       # alternative chain, ~43 s
 python run_cover.py 3,5 1e8 envelope      # scenario E, ~60 s
 python run_cover.py 3 1e8 uniform:1.146   # scenario U (expected to fail), ~40-55 s
+GB_PARITY=even python run_cover.py 3,5 1e8 interval   # even N, ~70 s (writes *_even outputs)
 # 4) analytic range (reads data_Q*.json from the current directory, <1 s each)
 python analytic.py 3,5 1e8
 python analytic.py 3 1e9
+GB_PARITY=even python analytic.py 3,5 1e8
 # 5) brute force of the local lemmas and float vs. rigorous comparison (~40 s)
 python test_local.py
 # 6) independent re-verification (~10 s)
 python ../crosscheck/crosscheck_local.py && python ../crosscheck/crosscheck_cells.py && python ../crosscheck/crosscheck_rs.py
+# 7) exact rational test of the sieve inequality of Appendix A (~1 min)
+python ../local_sieve/test_local_sieve.py 300
 ```
 
 The `uniform` scenarios are meant to fail (they show that a single global constant

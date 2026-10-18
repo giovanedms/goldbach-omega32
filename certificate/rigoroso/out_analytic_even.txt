@@ -1,0 +1,3 @@
+parity=even Q=(3, 5) Y=1e+08 K_exact(Y)<=1.000061 K_an(Y)<=1.005973 K_used=1.005973 cV>=2.068826
+  s=14.24815 alpha=0.57719 (A-s)log Y=41.481 (>10 needed)  float M(Y)=+9.53553
+  CERTIFIED M(t) >= +9.517845 for all z >= Y
