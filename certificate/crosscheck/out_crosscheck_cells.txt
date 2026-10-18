@@ -1,0 +1,24 @@
+seed 20261017 picks Q35_interval [84056, 83826, 110170, 55575]
+Q35_interval cell#84056 (178431.260599,178449.103725] s=14.26079 d=0.89062 #cand=4
+   K_cel check=1.000092981  K main=1.000092981  (main>=check: False)
+   margin check (K check) = +2.171227196 | check w/ K main = +2.171227239 | cert main = +2.171227241 | main<=check(K main)+1e-7: True
+Q35_interval cell#83826 (174374.377433,174391.814871] s=14.26111 d=0.89062 #cand=2
+   K_cel check=1.000131270  K main=1.000131270  (main>=check: True)
+   margin check (K check) = +2.153556403 | check w/ K main = +2.153556446 | cert main = +2.153556448 | main<=check(K main)+1e-7: True
+Q35_interval cell#110170 (5901594.000000,5902774.000000] s=14.23807 d=0.92188 #cand=79
+   K_cel check=1.000019619  K main=1.000069578  (main>=check: True)
+   margin check (K check) = +4.988505555 | check w/ K main = +4.985675964 | cert main = +4.985675947 | main<=check(K main)+1e-7: True
+Q35_interval cell#55575 (10342.336678,10343.370912] s=14.30443 d=0.83594 #cand=2
+   K_cel check=1.002249795  K main=1.002249795  (main>=check: True)
+   margin check (K check) = +1.118347013 | check w/ K main = +1.118347043 | cert main = +1.118347045 | main<=check(K main)+1e-7: True
+picks Q3_interval [59827, 59583]
+Q3_interval cell#59827 (15822.366959,15823.949196] s=14.44136 d=0.85156 #cand=2
+   K_cel check=1.039800553  K main=1.039800553  (main>=check: True)
+   margin check (K check) = +0.079236054 | check w/ K main = +0.079236086 | cert main = +0.079236088 | main<=check(K main)+1e-7: True
+Q3_interval cell#59583 (15440.991969,15442.536068] s=14.43944 d=0.85156 #cand=1
+   K_cel check=1.039214751  K main=1.039214751  (main>=check: True)
+   margin check (K check) = +0.107012812 | check w/ K main = +0.107012844 | cert main = +0.107012846 | main<=check(K main)+1e-7: True
+picks Q3_envelope [59827]
+Q3_envelope cell#59827 (15822.366959,15823.949196] s=14.44650 d=0.85156 #cand=2
+   K_cel check=1.039800553  K main=1.041163120  (main>=check: True)
+   margin check (K check) = +0.078328821 | check w/ K main = +0.036772854 | cert main = +0.036772856 | main<=check(K main)+1e-7: True

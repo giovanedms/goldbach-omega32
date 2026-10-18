@@ -1,0 +1,5 @@
+RS Thm5 superior (x=p>=286): max(sum - rhs) = -0.001120400724271331 (precisa <0)
+RS Thm5 inferior (x->p_next^-): min(sum - rhs) = 0.001477109065831872 (precisa >0)
+Sum log p/p - log x (x=p): max = -0.34657359027997264 (precisa <0)
+x0=1e8: Sum_(p<=x0) log p/p = 17.0881819792, log x0 = 18.4206807440, theta(x0)/x0 = 0.9998773002
+  => para x>=x0 (theta(t)<t): Sum < Sum(x0) + 1 - theta(x0)/x0 + log(x/x0) = log x + -1.3323760648869012

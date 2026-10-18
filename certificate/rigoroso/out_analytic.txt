@@ -1,0 +1,24 @@
+Q=(3, 5) Y=1e+08 K_exact(Y)<=1.000061 K_an(Y)<=1.005973 K_used=1.005973 cV>=2.068826
+  s=14.24820 alpha=0.57719 (16-s)log Y=32.269 (>10 needed)  float M(Y)=+0.67176
+  CERTIFIED M(t) >= +0.654075 for all z >= Y
+Q=(3, 5) Y=1e+08 K_exact(Y)<=1.000061 K_an(Y)<=1.005973 K_used=1.089970 cV>=2.068826
+  s=14.56237 alpha=0.59900 (16-s)log Y=26.482 (>10 needed)  float M(Y)=-4.94478
+  NOT certified: M lower = -4.962465173308335
+Q=(3,) Y=1e+08 K_exact(Y)<=1.037250 K_an(Y)<=1.043382 K_used=1.043382 cV>=1.241296
+  s=14.39135 alpha=0.58719 (16-s)log Y=29.632 (>10 needed)  float M(Y)=-2.24637
+  NOT certified: M lower = -2.2640540375223748
+Q=(3,) Y=1e+09 K_exact(Y)<=1.037245 K_an(Y)<=1.042087 K_used=1.042087 cV>=1.242838
+  s=14.38041 alpha=0.58643 (16-s)log Y=33.563 (>10 needed)  float M(Y)=+0.38539
+  CERTIFIED M(t) >= +0.371416 for all z >= Y
+Q=(3,) Y=1e+10 K_exact(Y)<=1.037243 K_an(Y)<=1.041163 K_used=1.041163 cV>=1.243941
+  s=14.37186 alpha=0.58583 (16-s)log Y=37.489 (>10 needed)  float M(Y)=+3.14542
+  CERTIFIED M(t) >= +3.134105 for all z >= Y
+Q=(3,) Y=1e+10 K_exact(Y)<=1.037243 K_an(Y)<=1.041163 K_used=1.146000 cV>=1.243941
+  s=14.74634 alpha=0.61155 (16-s)log Y=28.867 (>10 needed)  float M(Y)=-5.26836
+  NOT certified: M lower = -5.279680038765612
+Q=(3,) Y=1e+09 K_exact(Y)<=1.037245 K_an(Y)<=1.042087 K_used=1.097000 cV>=1.242838
+  s=14.58132 alpha=0.60030 (16-s)log Y=29.400 (>10 needed)  float M(Y)=-3.66570
+  NOT certified: M lower = -3.6796699774530928
+Q=(3,) Y=1e+10 K_exact(Y)<=1.037243 K_an(Y)<=1.041163 K_used=1.097000 cV>=1.243941
+  s=14.57638 alpha=0.59996 (16-s)log Y=32.780 (>10 needed)  float M(Y)=-1.44653
+  NOT certified: M lower = -1.4578475666728892

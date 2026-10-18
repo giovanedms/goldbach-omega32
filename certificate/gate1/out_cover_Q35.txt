@@ -1,0 +1,11 @@
+# model 1.2 s, primes kept 5761453
+# Q=[3, 5] eps=0.0001 z0*=39.916069 cells=147347 last v=100000000.0
+# min cell margin = 1.1188 on (10342.337,10343.371] s=14.297 d=0.84 K=1.00225
+# cells with margin<=0: 0
+  z in [39.9,100): min margin 15.3860 at 97.0 s=15.183 d=0.2 K=1.02487
+  z in [100,1e+03): min margin 2.5908 at 887.0 s=14.389 d=0.735 K=1.00862
+  z in [1e+03,1e+04): min margin 1.1212 at 9948.8 s=14.297 d=0.84 K=1.00222
+  z in [1e+04,1e+05): min margin 1.1188 at 10342.3 s=14.297 d=0.84 K=1.00225
+  z in [1e+05,1e+06): min margin 1.8309 at 100006.2 s=14.273 d=0.88 K=1.00039
+  z in [1e+06,1e+07): min margin 3.4166 at 1000362.0 s=14.252 d=0.905 K=1.00003
+  z in [1e+07,1e+08): min margin 5.5186 at 10000617.6 s=14.232 d=0.92 K=1.00000

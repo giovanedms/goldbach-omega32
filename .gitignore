@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+# LaTeX build products (paper/main.pdf is tracked on purpose)
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz
+# Regenerable by certificate/rigoroso/primes_blocks.py (see README)
+profiles_dump.csv
+.DS_Store

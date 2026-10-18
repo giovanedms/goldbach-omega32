@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software or the accompanying paper, please cite it as below."
+title: "Certificate and paper for: Goldbach-type sums a+b=N with Omega(ab) <= 32"
+type: software
+authors:
+  - family-names: "de Morais"
+    given-names: "Giovane"
+    email: "giovanedms@gmail.com"
+    affiliation: "Instituto Tecnológico de Aeronáutica (ITA)"
+date-released: "2026-10-18"
+version: "1.0.0"
+license: MIT
+repository-code: "https://github.com/giovanedms/goldbach-omega32"
+keywords:
+  - Goldbach
+  - almost primes
+  - sieve methods
+  - Friedlander-Iwaniec
+  - ball arithmetic
+  - computer-assisted proof

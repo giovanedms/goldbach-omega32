@@ -1,0 +1,10 @@
+blocks=20730 range [1000000,10000000000) time 37.7s
+pi(1e+06) = 78498  known 78498  OK
+pi(1e+07) = 664579  known 664579  OK
+pi(1e+08) = 5761455  known 5761455  OK
+pi(1e+09) = 50847534  known 50847534  OK
+pi(1e+10) = 455052511  known 455052511  OK
+saved blocks.npz
+	Command being timed: "python primes_blocks.py 1e10"
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:37.86
+	Maximum resident set size (kbytes): 256764

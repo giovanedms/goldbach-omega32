@@ -1,0 +1,15 @@
+# Q=(3,) XMAX=1e+08 mode=uniform:1.146 u0=39.91606854834768 (<= z0*, checked exactly) cells=117415 first u=np.float64(39.91606854834768) last v=np.float64(100000000.0)  build 25s
+# per-cell K (rigorous upper bounds): max K = 1.145723 on (42.9989,43.0032]
+# uniform K = exp(0.13627761829254784) = 1.146000
+# certification 2s; max |float approx - certified| = 1.26e-13
+RESULT cells=117415 failing(cert<=0)=85342
+RESULT min certified margin = -3.405836 on (118051.8679,118063.6730] s=14.79843 delta=0.875000 K=1.146000
+  z in (39.9,100]: min cert +14.28363 on (96.993,97.002] s=15.6039 d=0.2031 K=1.146000  fails=0
+  z in (100,1e+03]: min cert -0.05501 on (996.967,997.067] s=14.8929 d=0.7344 K=1.146000  fails=149
+  z in (1e+03,1e+04]: min cert -2.80888 on (9948.758,9949.753] s=14.8293 d=0.8359 K=1.146000  fails=23018
+  z in (1e+04,1e+05]: min cert -3.40009 on (96008.278,96017.879] s=14.8001 d=0.8750 K=1.146000  fails=23028
+  z in (1e+05,1e+06]: min cert -3.40584 on (118051.868,118063.673] s=14.7984 d=0.8750 K=1.146000  fails=23028
+  z in (1e+06,1e+07]: min cert -3.07524 on (1000200.000,1000400.000] s=14.7817 d=0.8984 K=1.146000  fails=11515
+  z in (1e+07,1e+08]: min cert -2.21197 on (10000000.000,10005000.000] s=14.7687 d=0.9219 K=1.146000  fails=4607
+# failing z-range: [976.9340, 100000000.0000]
+# total 38s

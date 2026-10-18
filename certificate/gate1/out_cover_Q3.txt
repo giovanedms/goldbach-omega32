@@ -1,0 +1,15 @@
+# model 0.9 s, primes kept 5761454
+# Q=[3] eps=0.0001 z0*=39.916069 cells=147347 last v=100000000.0
+# min cell margin = 0.0802 on (15822.367,15823.949] s=14.450 d=0.85 K=1.03980
+# cells with margin<=0: 0
+  z in [39.9,100): min margin 14.5301 at 97.0 s=15.383 d=0.2 K=1.07730
+  z in [100,1e+03): min margin 1.7729 at 997.0 s=14.543 d=0.74 K=1.04609
+  z in [1e+03,1e+04): min margin 0.1030 at 9948.8 s=14.452 d=0.835 K=1.04053
+  z in [1e+04,1e+05): min margin 0.0802 at 15822.4 s=14.450 d=0.85 K=1.03980
+  z in [1e+05,1e+06): min margin 0.5272 at 102251.1 s=14.407 d=0.88 K=1.03803
+  z in [1e+06,1e+07): min margin 1.8023 at 1000362.0 s=14.385 d=0.905 K=1.03733
+  z in [1e+07,1e+08): min margin 3.5881 at 10000617.6 s=14.385 d=0.92 K=1.03726
+
+real	2m42,589s
+user	1m7,387s
+sys	1m31,402s

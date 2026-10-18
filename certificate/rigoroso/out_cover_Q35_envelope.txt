@@ -1,0 +1,14 @@
+# Q=(3, 5) XMAX=1e+08 mode=envelope u0=39.91606854834768 (<= z0*, checked exactly) cells=117415 first u=np.float64(39.91606854834768) last v=np.float64(100000000.0)  build 48s
+# per-cell K (rigorous upper bounds): max K = 1.089970 on (42.9989,43.0032]
+# envelope K: tail K_an(XMAX) = 1.005973
+# certification 2s; max |float approx - certified| = 1.30e-13
+RESULT cells=117415 failing(cert<=0)=0
+RESULT min certified margin = 1.005101 on (10342.3367,10343.3709] s=14.31902 delta=0.835938 K=1.005973
+  z in (39.9,100]: min cert +15.25900 on (96.993,97.002] s=15.2804 d=0.2031 K=1.055235  fails=0
+  z in (100,1e+03]: min cert +2.47988 on (996.967,997.067] s=14.3950 d=0.7422 K=1.009537  fails=0
+  z in (1e+03,1e+04]: min cert +1.01058 on (9948.758,9949.753] s=14.3195 d=0.8359 K=1.005973  fails=0
+  z in (1e+04,1e+05]: min cert +1.00510 on (10342.337,10343.371] s=14.3190 d=0.8359 K=1.005973  fails=0
+  z in (1e+05,1e+06]: min cert +1.60571 on (99996.220,100006.220] s=14.2892 d=0.8828 K=1.005973  fails=0
+  z in (1e+06,1e+07]: min cert +3.12253 on (1000000.000,1000200.000] s=14.2713 d=0.9062 K=1.005973  fails=0
+  z in (1e+07,1e+08]: min cert +5.16797 on (10000000.000,10005000.000] s=14.2590 d=0.9219 K=1.005973  fails=0
+# total 61s

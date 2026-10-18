@@ -1,0 +1,461 @@
+Generating primes...
+Generated 5,761,455 primes below 100,000,000.
+
+(38.018457623749, 97]
+s=14.80  delta=0.20  S_lower=1.876202819369e+22  Positive=True
+(97, 151]
+s=14.80  delta=0.60  S_lower=1.021694840443e+29  Positive=True
+(151, 223]
+s=14.80  delta=0.60  S_lower=1.524788352650e+32  Positive=True
+(223, 293]
+s=14.80  delta=0.60  S_lower=1.467159442924e+35  Positive=True
+(293, 373]
+s=14.80  delta=0.60  S_lower=6.749954753923e+36  Positive=True
+(373, 443]
+s=14.80  delta=0.60  S_lower=3.697119096672e+38  Positive=True
+(443, 509]
+s=14.80  delta=0.75  S_lower=7.210625299792e+39  Positive=True
+(509, 593]
+s=14.80  delta=0.75  S_lower=4.064239370695e+40  Positive=True
+(593, 683]
+s=14.80  delta=0.75  S_lower=3.177150904291e+41  Positive=True
+(683, 773]
+s=14.80  delta=0.75  S_lower=6.845102760039e+42  Positive=True
+(773, 881]
+s=14.80  delta=0.75  S_lower=2.296137480900e+43  Positive=True
+(881, 997]
+s=14.80  delta=0.75  S_lower=2.060470020604e+44  Positive=True
+(997, 1109]
+s=14.80  delta=0.75  S_lower=2.083727623776e+45  Positive=True
+(1109, 1231]
+s=14.80  delta=0.75  S_lower=8.899830311824e+45  Positive=True
+(1231, 1361]
+s=14.80  delta=0.75  S_lower=4.779990137092e+46  Positive=True
+(1361, 1489]
+s=14.80  delta=0.75  S_lower=2.281597220099e+47  Positive=True
+(1489, 1613]
+s=14.80  delta=0.75  S_lower=9.763872807660e+47  Positive=True
+(1613, 1741]
+s=14.80  delta=0.75  S_lower=2.889502970653e+48  Positive=True
+(1741, 1871]
+s=14.80  delta=0.75  S_lower=1.129872132777e+49  Positive=True
+(1871, 1999]
+s=14.80  delta=0.75  S_lower=2.974780125120e+49  Positive=True
+(1999, 2113]
+s=14.80  delta=0.75  S_lower=1.233620243479e+50  Positive=True
+(2113, 2221]
+s=14.80  delta=0.75  S_lower=3.984666158719e+50  Positive=True
+(2221, 2333]
+s=14.80  delta=0.75  S_lower=5.947635443286e+50  Positive=True
+(2333, 2423]
+s=14.80  delta=0.75  S_lower=1.605820611615e+51  Positive=True
+(2423, 2521]
+s=14.80  delta=0.75  S_lower=2.509120843276e+51  Positive=True
+(2521, 2617]
+s=14.80  delta=0.75  S_lower=4.409946855560e+51  Positive=True
+(2617, 2699]
+s=14.80  delta=0.75  S_lower=7.252981842882e+51  Positive=True
+(2699, 2767]
+s=14.80  delta=0.75  S_lower=1.360569310730e+52  Positive=True
+(2767, 2833]
+s=14.80  delta=0.75  S_lower=1.700271249998e+52  Positive=True
+(2833, 2887]
+s=14.80  delta=0.75  S_lower=3.235887886767e+52  Positive=True
+(2887, 2939]
+s=14.80  delta=0.75  S_lower=4.069396022159e+52  Positive=True
+(2939, 2971]
+s=14.80  delta=0.75  S_lower=8.321781602448e+52  Positive=True
+(2971, 3019]
+s=14.80  delta=0.75  S_lower=6.097846936293e+52  Positive=True
+(3019, 3061]
+s=14.80  delta=0.75  S_lower=8.615629519440e+52  Positive=True
+(3061, 3089]
+s=14.80  delta=0.75  S_lower=1.449954361455e+53  Positive=True
+(3089, 3121]
+s=14.80  delta=0.75  S_lower=1.474056517376e+53  Positive=True
+(3121, 3167]
+s=14.80  delta=0.75  S_lower=1.184577663543e+53  Positive=True
+(3167, 3203]
+s=14.80  delta=0.75  S_lower=1.775180467972e+53  Positive=True
+(3203, 3229]
+s=14.80  delta=0.75  S_lower=2.467087434363e+53  Positive=True
+(3229, 3259]
+s=14.80  delta=0.85  S_lower=2.361479304438e+53  Positive=True
+(3259, 3271]
+s=14.80  delta=0.85  S_lower=4.834656852665e+53  Positive=True
+(3271, 3307]
+s=14.80  delta=0.85  S_lower=2.776148778971e+53  Positive=True
+(3307, 3343]
+s=14.80  delta=0.85  S_lower=3.089849874927e+53  Positive=True
+(3343, 3373]
+s=14.80  delta=0.85  S_lower=4.469376414238e+53  Positive=True
+(3373, 3407]
+s=14.80  delta=0.85  S_lower=4.997465211374e+53  Positive=True
+(3407, 3449]
+s=14.80  delta=0.85  S_lower=5.234204744261e+53  Positive=True
+(3449, 3491]
+s=14.80  delta=0.85  S_lower=6.357483439897e+53  Positive=True
+(3491, 3533]
+s=14.80  delta=0.85  S_lower=7.703553995230e+53  Positive=True
+(3533, 3571]
+s=14.80  delta=0.85  S_lower=1.047086536499e+54  Positive=True
+(3571, 3613]
+s=14.80  delta=0.85  S_lower=1.133847889707e+54  Positive=True
+(3613, 3643]
+s=14.80  delta=0.85  S_lower=1.943033651412e+54  Positive=True
+(3643, 3677]
+s=14.80  delta=0.85  S_lower=2.057915685767e+54  Positive=True
+(3677, 3719]
+s=14.80  delta=0.85  S_lower=1.932592909668e+54  Positive=True
+(3719, 3767]
+s=14.80  delta=0.85  S_lower=2.069255159935e+54  Positive=True
+(3767, 3803]
+s=14.80  delta=0.85  S_lower=3.785973979134e+54  Positive=True
+(3803, 3853]
+s=14.80  delta=0.85  S_lower=2.959137467135e+54  Positive=True
+(3853, 3907]
+s=14.80  delta=0.85  S_lower=3.741142834890e+54  Positive=True
+(3907, 3947]
+s=14.80  delta=0.85  S_lower=6.429771128759e+54  Positive=True
+(3947, 4003]
+s=14.80  delta=0.85  S_lower=5.646258683349e+54  Positive=True
+(4003, 4057]
+s=14.80  delta=0.85  S_lower=7.405640707305e+54  Positive=True
+(4057, 4111]
+s=14.80  delta=0.85  S_lower=1.007889505657e+55  Positive=True
+(4111, 4159]
+s=14.80  delta=0.85  S_lower=1.457547629610e+55  Positive=True
+(4159, 4219]
+s=14.80  delta=0.85  S_lower=1.479322605091e+55  Positive=True
+(4219, 4273]
+s=14.80  delta=0.85  S_lower=2.056075260164e+55  Positive=True
+(4273, 4339]
+s=14.80  delta=0.85  S_lower=2.077350046964e+55  Positive=True
+(4339, 4409]
+s=14.80  delta=0.85  S_lower=2.747663463551e+55  Positive=True
+(4409, 4483]
+s=14.80  delta=0.85  S_lower=3.369804825779e+55  Positive=True
+(4483, 4561]
+s=14.80  delta=0.85  S_lower=4.316008751789e+55  Positive=True
+(4561, 4643]
+s=14.80  delta=0.85  S_lower=5.781466334155e+55  Positive=True
+(4643, 4723]
+s=14.80  delta=0.85  S_lower=8.732726209242e+55  Positive=True
+(4723, 4801]
+s=14.80  delta=0.85  S_lower=1.263673041898e+56  Positive=True
+(4801, 4889]
+s=14.80  delta=0.85  S_lower=1.623103676604e+56  Positive=True
+(4889, 4973]
+s=14.80  delta=0.85  S_lower=2.357515019984e+56  Positive=True
+(4973, 5059]
+s=14.80  delta=0.85  S_lower=3.069720555924e+56  Positive=True
+(5059, 5153]
+s=14.80  delta=0.85  S_lower=3.807105133850e+56  Positive=True
+(5153, 5261]
+s=14.80  delta=0.85  S_lower=4.278491537283e+56  Positive=True
+(5261, 5351]
+s=14.80  delta=0.85  S_lower=9.720723714874e+56  Positive=True
+(5351, 5449]
+s=14.80  delta=0.85  S_lower=1.125112870475e+57  Positive=True
+(5449, 5563]
+s=14.80  delta=0.85  S_lower=1.189237675060e+57  Positive=True
+(5563, 5683]
+s=14.80  delta=0.85  S_lower=1.606820951552e+57  Positive=True
+(5683, 5807]
+s=14.80  delta=0.85  S_lower=2.356991127147e+57  Positive=True
+(5807, 5927]
+s=14.80  delta=0.85  S_lower=3.557682142878e+57  Positive=True
+(5927, 6067]
+s=14.80  delta=0.85  S_lower=4.253068428595e+57  Positive=True
+(6067, 6211]
+s=14.80  delta=0.85  S_lower=6.365969244371e+57  Positive=True
+(6211, 6353]
+s=14.80  delta=0.85  S_lower=9.877724712083e+57  Positive=True
+(6353, 6491]
+s=14.80  delta=0.85  S_lower=1.751705956974e+58  Positive=True
+(6491, 6659]
+s=14.80  delta=0.85  S_lower=1.760951941648e+58  Positive=True
+(6659, 6829]
+s=14.80  delta=0.85  S_lower=2.791115200317e+58  Positive=True
+(6829, 7001]
+s=14.80  delta=0.85  S_lower=4.242605419496e+58  Positive=True
+(7001, 7187]
+s=14.80  delta=0.85  S_lower=6.554572091263e+58  Positive=True
+(7187, 7369]
+s=14.80  delta=0.85  S_lower=1.253808181687e+59  Positive=True
+(7369, 7573]
+s=14.80  delta=0.85  S_lower=1.490471649286e+59  Positive=True
+(7573, 7759]
+s=14.80  delta=0.85  S_lower=3.187855329882e+59  Positive=True
+(7759, 7963]
+s=14.80  delta=0.85  S_lower=4.345987772316e+59  Positive=True
+(7963, 8191]
+s=14.80  delta=0.85  S_lower=5.904313198621e+59  Positive=True
+(8191, 8431]
+s=14.80  delta=0.85  S_lower=9.019900287339e+59  Positive=True
+(8431, 8693]
+s=14.80  delta=0.85  S_lower=1.250965066208e+60  Positive=True
+(8693, 8963]
+s=14.80  delta=0.85  S_lower=2.123672905508e+60  Positive=True
+(8963, 9241]
+s=14.80  delta=0.85  S_lower=3.593206645118e+60  Positive=True
+(9241, 9521]
+s=14.80  delta=0.85  S_lower=6.459505741268e+60  Positive=True
+(9521, 9817]
+s=14.80  delta=0.85  S_lower=1.017511765508e+61  Positive=True
+(9817, 10099]
+s=14.80  delta=0.85  S_lower=2.355750659359e+61  Positive=True
+(10099, 10343]
+s=14.80  delta=0.85  S_lower=5.096337222344e+61  Positive=True
+(10343, 10657]
+s=14.80  delta=0.85  S_lower=5.137403602323e+61  Positive=True
+(10657, 10949]
+s=14.80  delta=0.85  S_lower=1.124441843496e+62  Positive=True
+(10949, 11329]
+s=14.80  delta=0.85  S_lower=9.120154739311e+61  Positive=True
+(11329, 11657]
+s=14.80  delta=0.85  S_lower=3.141665667806e+62  Positive=True
+(11657, 12011]
+s=14.80  delta=0.85  S_lower=4.534582804488e+62  Positive=True
+(12011, 12401]
+s=14.80  delta=0.85  S_lower=6.611488189478e+62  Positive=True
+(12401, 12829]
+s=14.80  delta=0.85  S_lower=8.836583201717e+62  Positive=True
+(12829, 13187]
+s=14.80  delta=0.85  S_lower=2.597623316971e+63  Positive=True
+(13187, 13619]
+s=14.80  delta=0.85  S_lower=3.200590960927e+63  Positive=True
+(13619, 14081]
+s=14.80  delta=0.85  S_lower=4.985625580979e+63  Positive=True
+(14081, 14593]
+s=14.80  delta=0.85  S_lower=7.510542508478e+63  Positive=True
+(14593, 15149]
+s=14.80  delta=0.85  S_lower=1.123369704515e+64  Positive=True
+(15149, 15679]
+s=14.80  delta=0.85  S_lower=2.763988147974e+64  Positive=True
+(15679, 16267]
+s=14.80  delta=0.85  S_lower=3.976771462766e+64  Positive=True
+(16267, 16903]
+s=14.80  delta=0.85  S_lower=6.921826647005e+64  Positive=True
+(16903, 17573]
+s=14.80  delta=0.85  S_lower=1.249410344752e+65  Positive=True
+(17573, 18233]
+s=14.80  delta=0.85  S_lower=2.956737507815e+65  Positive=True
+(18233, 19009]
+s=14.80  delta=0.85  S_lower=3.596510949607e+65  Positive=True
+(19009, 19793]
+s=14.80  delta=0.85  S_lower=8.798073594825e+65  Positive=True
+(19793, 20551]
+s=14.80  delta=0.85  S_lower=2.259042760107e+66  Positive=True
+(20551, 21383]
+s=14.80  delta=0.85  S_lower=3.669749036268e+66  Positive=True
+(21383, 22307]
+s=14.80  delta=0.85  S_lower=4.788791273891e+66  Positive=True
+(22307, 23203]
+s=14.80  delta=0.85  S_lower=1.413232037709e+67  Positive=True
+(23203, 24169]
+s=14.80  delta=0.85  S_lower=2.282075086828e+67  Positive=True
+(24169, 25183]
+s=14.80  delta=0.85  S_lower=4.947703744718e+67  Positive=True
+(25183, 26297]
+s=14.80  delta=0.85  S_lower=7.668383369226e+67  Positive=True
+(26297, 27449]
+s=14.80  delta=0.85  S_lower=1.752020660449e+68  Positive=True
+(27449, 28649]
+s=14.80  delta=0.85  S_lower=3.567705155609e+68  Positive=True
+(28649, 29921]
+s=14.80  delta=0.85  S_lower=7.062371827706e+68  Positive=True
+(29921, 31259]
+s=14.80  delta=0.85  S_lower=1.414010144119e+69  Positive=True
+(31259, 32717]
+s=14.80  delta=0.85  S_lower=2.316893582975e+69  Positive=True
+(32717, 34157]
+s=14.80  delta=0.85  S_lower=6.784185909719e+69  Positive=True
+(34157, 35759]
+s=14.80  delta=0.85  S_lower=1.008420291235e+70  Positive=True
+(35759, 37397]
+s=14.80  delta=0.85  S_lower=2.420414640439e+70  Positive=True
+(37397, 39133]
+s=14.80  delta=0.85  S_lower=4.905242105969e+70  Positive=True
+(39133, 40973]
+s=14.80  delta=0.85  S_lower=9.919846201154e+70  Positive=True
+(40973, 42841]
+s=14.80  delta=0.85  S_lower=2.264693492042e+71  Positive=True
+(42841, 44843]
+s=14.80  delta=0.85  S_lower=4.308131207386e+71  Positive=True
+(44843, 46993]
+s=14.80  delta=0.85  S_lower=8.333619147567e+71  Positive=True
+(46993, 49211]
+s=14.80  delta=0.85  S_lower=1.923147685319e+72  Positive=True
+(49211, 51487]
+s=14.80  delta=0.85  S_lower=4.601474472336e+72  Positive=True
+(51487, 53891]
+s=14.80  delta=0.85  S_lower=9.100478525257e+72  Positive=True
+(53891, 56431]
+s=14.80  delta=0.85  S_lower=1.817360757243e+73  Positive=True
+(56431, 59053]
+s=14.80  delta=0.85  S_lower=3.866513876755e+73  Positive=True
+(59053, 61717]
+s=14.80  delta=0.85  S_lower=9.540005840024e+73  Positive=True
+(61717, 64601]
+s=14.80  delta=0.85  S_lower=1.666748761814e+74  Positive=True
+(64601, 67547]
+s=14.80  delta=0.85  S_lower=3.864793897051e+74  Positive=True
+(67547, 70657]
+s=14.80  delta=0.85  S_lower=7.721279524850e+74  Positive=True
+(70657, 73859]
+s=14.80  delta=0.85  S_lower=1.676176140222e+75  Positive=True
+(73859, 77261]
+s=14.80  delta=0.85  S_lower=3.067146910686e+75  Positive=True
+(77261, 80809]
+s=14.80  delta=0.85  S_lower=6.071418345391e+75  Positive=True
+(80809, 84437]
+s=14.80  delta=0.85  S_lower=1.395738285555e+76  Positive=True
+(84437, 88259]
+s=14.80  delta=0.85  S_lower=2.663928519131e+76  Positive=True
+(88259, 92243]
+s=14.80  delta=0.85  S_lower=5.263640719074e+76  Positive=True
+(92243, 96331]
+s=14.80  delta=0.85  S_lower=1.083245966709e+77  Positive=True
+(96331, 100109]
+s=14.80  delta=0.85  S_lower=3.781644325044e+77  Positive=True
+(100109, 103591]
+s=14.80  delta=0.85  S_lower=9.392779211956e+77  Positive=True
+(103591, 107033]
+s=14.80  delta=0.85  S_lower=1.748014016523e+78  Positive=True
+(107033, 110597]
+s=14.80  delta=0.85  S_lower=2.943179665851e+78  Positive=True
+(110597, 115321]
+s=14.80  delta=0.85  S_lower=2.177265960133e+78  Positive=True
+(115321, 119983]
+s=14.80  delta=0.85  S_lower=5.395502654094e+78  Positive=True
+(119983, 124577]
+s=14.80  delta=0.85  S_lower=1.196308246676e+79  Positive=True
+(124577, 129281]
+s=14.80  delta=0.85  S_lower=2.216379873120e+79  Positive=True
+(129281, 134053]
+s=14.80  delta=0.85  S_lower=4.230041097822e+79  Positive=True
+(134053, 138641]
+s=14.80  delta=0.85  S_lower=8.949731690906e+79  Positive=True
+(138641, 143501]
+s=14.80  delta=0.85  S_lower=1.417656414806e+80  Positive=True
+(143501, 148339]
+s=14.80  delta=0.85  S_lower=2.687087241162e+80  Positive=True
+(148339, 152879]
+s=14.80  delta=0.85  S_lower=5.385341841262e+80  Positive=True
+(152879, 157739]
+s=14.80  delta=0.85  S_lower=7.926283391086e+80  Positive=True
+(157739, 162649]
+s=14.80  delta=0.85  S_lower=1.352581548221e+81  Positive=True
+(162649, 167471]
+s=14.80  delta=0.85  S_lower=2.385337206316e+81  Positive=True
+(167471, 173647]
+s=14.80  delta=0.85  S_lower=1.834919244257e+81  Positive=True
+(173647, 179579]
+s=14.80  delta=0.85  S_lower=4.266258581073e+81  Positive=True
+(179579, 185641]
+s=14.80  delta=0.85  S_lower=7.189742568075e+81  Positive=True
+(185641, 191671]
+s=14.80  delta=0.85  S_lower=1.320401209755e+82  Positive=True
+(191671, 197753]
+s=14.80  delta=0.85  S_lower=2.251099096649e+82  Positive=True
+(197753, 203969]
+s=14.80  delta=0.85  S_lower=3.668191795793e+82  Positive=True
+(203969, 209929]
+s=14.80  delta=0.85  S_lower=7.014666231323e+82  Positive=True
+(209929, 216157]
+s=14.80  delta=0.85  S_lower=1.019407778326e+83  Positive=True
+(216157, 222289]
+s=14.80  delta=0.85  S_lower=1.757067790308e+83  Positive=True
+(222289, 228469]
+s=14.80  delta=0.85  S_lower=2.765300919853e+83  Positive=True
+(228469, 234629]
+s=14.80  delta=0.85  S_lower=4.414394445081e+83  Positive=True
+(234629, 240967]
+s=14.80  delta=0.93  S_lower=6.981412697045e+83  Positive=True
+(240967, 248257]
+s=14.80  delta=0.93  S_lower=9.381639141413e+83  Positive=True
+(248257, 255709]
+s=14.80  delta=0.93  S_lower=1.880379303631e+84  Positive=True
+(255709, 264643]
+s=14.80  delta=0.93  S_lower=2.352489839099e+84  Positive=True
+(264643, 274529]
+s=14.80  delta=0.93  S_lower=4.088798435900e+84  Positive=True
+(274529, 285709]
+s=14.80  delta=0.93  S_lower=6.753615343800e+84  Positive=True
+(285709, 297403]
+s=14.80  delta=0.93  S_lower=1.719129749215e+85  Positive=True
+(297403, 311299]
+s=14.80  delta=0.93  S_lower=2.431795132748e+85  Positive=True
+(311299, 326119]
+s=14.80  delta=0.93  S_lower=6.511313647241e+85  Positive=True
+(326119, 342691]
+s=14.80  delta=0.93  S_lower=1.405982176449e+86  Positive=True
+(342691, 361961]
+s=14.80  delta=0.93  S_lower=2.612239690676e+86  Positive=True
+(361961, 383963]
+s=14.80  delta=0.93  S_lower=5.970582119029e+86  Positive=True
+(383963, 408607]
+s=14.80  delta=0.93  S_lower=1.739921292634e+87  Positive=True
+(408607, 436717]
+s=14.80  delta=0.93  S_lower=4.702246202546e+87  Positive=True
+(436717, 468421]
+s=14.80  delta=0.93  S_lower=1.575271054156e+88  Positive=True
+(468421, 504893]
+s=14.80  delta=0.93  S_lower=4.870630215437e+88  Positive=True
+(504893, 547121]
+s=14.80  delta=0.93  S_lower=1.623111417852e+89  Positive=True
+(547121, 597349]
+s=14.80  delta=0.93  S_lower=4.684620008739e+89  Positive=True
+(597349, 655003]
+s=14.80  delta=0.93  S_lower=2.461849241789e+90  Positive=True
+(655003, 723451]
+s=14.80  delta=0.93  S_lower=9.931416570640e+90  Positive=True
+(723451, 804761]
+s=14.80  delta=0.93  S_lower=4.872390693230e+91  Positive=True
+(804761, 901687]
+s=14.80  delta=0.93  S_lower=2.829454291439e+92  Positive=True
+(901687, 1013527]
+s=14.80  delta=0.93  S_lower=2.876272585289e+93  Positive=True
+(1013527, 1152733]
+s=14.80  delta=0.93  S_lower=1.392417055096e+94  Positive=True
+(1152733, 1321031]
+s=14.80  delta=0.93  S_lower=1.311889310271e+95  Positive=True
+(1321031, 1518707]
+s=14.80  delta=0.93  S_lower=1.910234455960e+96  Positive=True
+(1518707, 1777661]
+s=14.80  delta=0.93  S_lower=9.671907059467e+96  Positive=True
+(1777661, 2095481]
+s=14.80  delta=0.93  S_lower=1.848924529673e+98  Positive=True
+(2095481, 2506291]
+s=14.80  delta=0.93  S_lower=2.065379158774e+99  Positive=True
+(2506291, 3040517]
+s=14.80  delta=0.93  S_lower=3.149091723335e+100  Positive=True
+(3040517, 3731333]
+s=14.80  delta=0.93  S_lower=9.390930553508e+101  Positive=True
+(3731333, 4646959]
+s=14.80  delta=0.93  S_lower=2.575681373021e+103  Positive=True
+(4646959, 5885599]
+s=14.80  delta=0.93  S_lower=7.824294694791e+104  Positive=True
+(5885599, 7583509]
+s=14.80  delta=0.93  S_lower=3.423532000366e+106  Positive=True
+(7583509, 9933463]
+s=14.80  delta=0.93  S_lower=2.566364789521e+108  Positive=True
+(9933463, 13267537]
+s=14.80  delta=0.93  S_lower=1.968133842992e+110  Positive=True
+(13267537, 18070067]
+s=14.80  delta=0.93  S_lower=2.439716635415e+112  Positive=True
+(18070067, 25163167]
+s=14.80  delta=0.93  S_lower=3.513475463952e+114  Positive=True
+(25163167, 35847143]
+s=14.80  delta=0.93  S_lower=8.158032392802e+116  Positive=True
+(35847143, 52207439]
+s=14.80  delta=0.93  S_lower=3.477075071277e+119  Positive=True
+(52207439, 78107923]
+s=14.80  delta=0.93  S_lower=1.462620687870e+122  Positive=True
+(78107923, 100000000]
+s=14.80  delta=0.93  S_lower=8.485332415603e+125  Positive=True
+
+Verified 227 intervals covering (z_0, 100000000].
+Minimum accepted log-ratio: 0.100005606572
+Minimum accepted lower bound: 1.876202819369e+22

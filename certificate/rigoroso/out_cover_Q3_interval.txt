@@ -1,0 +1,18 @@
+# Q=(3,) XMAX=1e+10 mode=interval u0=39.91606854834768 (<= z0*, checked exactly) cells=122023 first u=np.float64(39.91606854834768) last v=np.float64(10000000000.0)  build 31s
+# per-cell K (rigorous upper bounds): max K = 1.145723 on (42.9989,43.0032]
+# certification 1s; max |float approx - certified| = 1.78e-13
+RESULT cells=122023 failing(cert<=0)=0
+RESULT min certified margin = 0.079236 on (15822.3670,15823.9492] s=14.44136 delta=0.851562 K=1.039801
+  z in (39.9,100]: min cert +14.51431 on (96.993,97.002] s=15.3618 d=0.2031 K=1.077295  fails=0
+  z in (100,1e+03]: min cert +1.77433 on (996.967,997.067] s=14.5347 d=0.7422 K=1.046088  fails=0
+  z in (1e+03,1e+04]: min cert +0.10438 on (9948.758,9949.753] s=14.4522 d=0.8359 K=1.040526  fails=0
+  z in (1e+04,1e+05]: min cert +0.07924 on (15822.367,15823.949] s=14.4414 d=0.8516 K=1.039801  fails=0
+  z in (1e+05,1e+06]: min cert +0.52385 on (99996.220,100006.220] s=14.4119 d=0.8828 K=1.037887  fails=0
+  z in (1e+06,1e+07]: min cert +1.80126 on (1002804.000,1003004.000] s=14.3921 d=0.9062 K=1.037389  fails=0
+  z in (1e+07,1e+08]: min cert +3.58250 on (10000000.000,10005000.000] s=14.3796 d=0.9219 K=1.037325  fails=0
+  z in (1e+08,1e+09]: min cert +5.69228 on (100000000.000,100100000.000] s=14.3710 d=0.9297 K=1.037362  fails=0
+  z in (1e+09,1e+10]: min cert +8.05907 on (1000000000.000,1001000000.000] s=14.3642 d=0.9375 K=1.037345  fails=0
+# boundary Y=1e+08: L_hi=np.float64(5.604898205349271) (W(Y)>=0.0036797951)  K_exact(Y)<=1.037250
+# boundary Y=1e+09: L_hi=np.float64(5.840459223259359) (W(Y)>=0.0029075071)  K_exact(Y)<=1.037245
+# boundary Y=1e+10: L_hi=np.float64(6.051178505306034) (W(Y)>=0.0023550849)  K_exact(Y)<=1.037243
+# total 43s

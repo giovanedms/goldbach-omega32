@@ -1,0 +1,33 @@
+{
+  "title": "Certificate and paper for: Goldbach-type sums a+b=N with Omega(ab) <= 32",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "de Morais, Giovane",
+      "affiliation": "Instituto Tecnológico de Aeronáutica (ITA)"
+    }
+  ],
+  "description": "Code, outputs and SHA-256 manifest of the rigorous (ball-arithmetic) finite-range certificate, together with the preprint, for the result that, assuming the local reading of the dimension condition (Hypothesis 4.1 of the paper), every integer N >= 2 can be written as N = a + b with positive integers a, b and Omega(ab) <= 32. This improves the bound Omega(ab) <= 33 of P. J. Campbell (arXiv:2608.09488).",
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": [
+    "Goldbach",
+    "almost primes",
+    "sieve methods",
+    "Friedlander-Iwaniec",
+    "ball arithmetic",
+    "computer-assisted proof"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/giovanedms/goldbach-omega32",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "arXiv:2608.09488",
+      "relation": "cites",
+      "scheme": "arxiv"
+    }
+  ]
+}

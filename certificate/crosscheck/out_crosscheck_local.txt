@@ -1,0 +1,4 @@
+N testados=859  violacoes=0  identidade r_d exata OK
+max|rho_l|/2^omega = 0.8824; max|r_d|/2^omega(d) = 1.5882
+max(|rho3|+|rho5|+|rho15|) = 10/3 = 3.3333  -> C_Q fino = 9 + max/4 = 9.8333
+min X - ((N-1)/5-3) = 9/5

@@ -1,0 +1,26 @@
+(1)-(3) odd N in [3,1500) + 60 N near 30031: violations = 0; max |r_d|/2^omega(d): Q=(3,): 0.6868, Q=(3, 5): 1.3077
+./test_local.py:60: RuntimeWarning: divide by zero encountered in log1p
+  ellf = np.where(P == 2, math.log(2), -np.log1p(-2 / pf))
+Q=(3,): L(1e8) float 5.604898192175  rigorous [5.604898185607, 5.604898205349]  width 1.97e-08
+   E_0.2031(1e8) float 1241709.4146366664 rigorous hi 1241709.4193312756  (hi-float 4.69e-03)
+   E_0.5938(1e8) float 2255.2844871943 rigorous hi 2255.2845129833  (hi-float 2.58e-05)
+   E_0.9922(1e8) float 19.5658504866 rigorous hi 19.5658505461  (hi-float 5.94e-08)
+   z=43.001: cell (42.999,43.003] rigorous K<= 1.1457228  brute(float, endpoints) 1.1456770
+   z=97.5: cell (97.498,97.508] rigorous K<= 1.0748861  brute(float, endpoints) 1.0748861
+   z=1000.5: cell (1000.463,1000.563] rigorous K<= 1.0450380  brute(float, endpoints) 1.0450380
+   z=15823: cell (15822.367,15823.949] rigorous K<= 1.0398006  brute(float, endpoints) 1.0397877
+   z=250000: cell (249981.415,250006.413] rigorous K<= 1.0376384  brute(float, endpoints) 1.0376352
+   z=3.3e+06: cell (3299862.000,3300522.000] rigorous K<= 1.0373652  brute(float, endpoints) 1.0373401
+   z=5e+07: cell (49982995.000,50007987.000] rigorous K<= 1.0373174  brute(float, endpoints) 1.0372604
+Q=(3, 5): L(1e8) float 5.094072568409  rigorous [5.094072561841, 5.094072581583]  width 1.97e-08
+   E_0.2031(1e8) float 1241707.5022613886 rigorous hi 1241707.5069559978  (hi-float 4.69e-03)
+   E_0.5938(1e8) float 2253.8792143095 rigorous hi 2253.8792400985  (hi-float 2.58e-05)
+   E_0.9922(1e8) float 18.6025826676 rigorous hi 18.6025827271  (hi-float 5.94e-08)
+   z=43.001: cell (42.999,43.003] rigorous K<= 1.0899705  brute(float, endpoints) 1.0899269
+   z=97.5: cell (97.498,97.508] rigorous K<= 1.0225808  brute(float, endpoints) 1.0225808
+   z=1000.5: cell (1000.463,1000.563] rigorous K<= 1.0028997  brute(float, endpoints) 1.0028997
+   z=15823: cell (15822.367,15823.949] rigorous K<= 1.0019738  brute(float, endpoints) 1.0019613
+   z=250000: cell (249981.415,250006.413] rigorous K<= 1.0002549  brute(float, endpoints) 1.0002518
+   z=3.3e+06: cell (3299862.000,3300522.000] rigorous K<= 1.0001126  brute(float, endpoints) 1.0000642
+   z=5e+07: cell (49982995.000,50007987.000] rigorous K<= 1.0001256  brute(float, endpoints) 1.0000146
+all checks passed

@@ -1,0 +1,14 @@
+A: log10 z=11.5: log ratio=-1.159  (N=10^184.0)
+A: log10 z=11.9: log ratio=-0.267  (N=10^190.4)
+A: log10 z=12.0: log ratio=-0.042  (N=10^192.0)
+A: log10 z=12.1: log ratio=+0.183  (N=10^193.6)
+A: log10 z=12.25: log ratio=+0.523  (N=10^196.0)
+A closes at log10 z = 12.019, N = 10^192.3
+Q35: K=1.00592 cV=2.06883
+Q35 C-style: log10 z=8.0: log ratio=+0.658
+Q35 C-style: log10 z=8.5: log ratio=+2.071
+Q35 C-style: log10 z=9: log ratio=+3.525
+Q35 C-style: log10 z=10: log ratio=+6.527
+Q35 C-style: log10 z=12: log ratio=+12.846
+Q35 C-style: log10 z=20: log ratio=+40.524
+Q35 C-style: log10 z=40: log ratio=+116.131
