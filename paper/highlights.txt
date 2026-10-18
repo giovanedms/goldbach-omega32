@@ -3,4 +3,4 @@ Highlights
 - The explicit sieve bound is proved with the dimension condition at one level
 - Per-interval dimension constants and pre-sieving by 3 and 5 close the odd case
 - The finite range is certified in ball arithmetic over 117,415 intervals
-- The certificate code is public and reproduces bit for bit
+- The certificate is public, deterministic and reproducible

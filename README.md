@@ -29,10 +29,10 @@ The paper is a **preprint, to be submitted**. Status and DOI will be added here.
 |---|---|
 | `paper/` | `main.tex`, `main.pdf`, `refs.bib`, `figs/` (PDF figures and `make_figs.py`) |
 | `certificate/rigoroso/` | The certificate: exact prime-block data (`primes_blocks.py`, `blocks.npz`), ball-arithmetic library `rlib.py`, finite cover `run_cover.py`, analytic range `analytic.py`, local-lemma tests `test_local.py`, outputs `out_*.txt`, `data_*.json`, `cells_*.npz` |
-| `certificate/crosscheck/` | Independent re-verification (`crosscheck_local.py`, `crosscheck_cells.py`, `crosscheck_rs.py`) and outputs |
-| `certificate/gate1/` | Independent float64 reimplementation, outputs |
+| `certificate/crosscheck/` | Separate re-verification (AI-written, internal consistency) (`crosscheck_local.py`, `crosscheck_cells.py`, `crosscheck_rs.py`) and outputs |
+| `certificate/gate1/` | Separate float64 reimplementation (AI-written, internal consistency), outputs |
 | `certificate/local_sieve/` | `test_local_sieve.py`, exact rational test of every step of Appendix A (Theorem 4.1) |
-| `certificate/rankin/` | `rk.py`, numeric check of the Rankin step (paper §4.4) |
+| `certificate/rankin/` | `rk.py`, numeric check of the Rankin step (paper Proposition 4.4) |
 | `certificate/campbell_repro/` | Outputs and timings of Campbell's three scripts (regression for Ω ≤ 33). His code is not included, see `THIRD_PARTY_NOTICES.md` |
 | `certificate/SHA256SUMS` | SHA-256 of every file in `certificate/` |
 

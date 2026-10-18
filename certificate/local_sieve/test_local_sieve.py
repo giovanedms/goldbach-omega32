@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Exact checks of the Lambda^- Lambda^2 lower bound under the LOCAL dimension condition.
+"""Checks of the Lambda^- Lambda^2 lower bound under the LOCAL dimension condition.
 
-Verifies, in exact rational arithmetic, every link of Appendix A for the actual sequence
+(A1)-(A3) are exact rational checks (with the weights w(d) replaced by rational approximations);
+(A4), (A4a), (A5) are floating-point checks with relative tolerance 1e-9. Proposition 4.4 is not tested.
+Checks every link of Appendix A for the actual sequence
 a_n = n(N-n)/2 (N odd) or n(N-n) (N even), pre-sieved by Q, and for random densities:
 
   (A1) S(A,z) >= sum_d lambda_d |A_d|                     (combinatorial inequality, exact)
@@ -114,6 +116,26 @@ def check_identity_and_weights(ps, g, Y, z, tag):
     return divs, gd, lam, J, lhs, float(V), float(I), c
 
 
+def local_K(ps, g, z):
+    """Smallest K >= 1 with prod_{w<=p<z}(1-g(p))^{-1} <= K (log z/log w)^2 for all 2 <= w < z (kappa = 2).
+    The sup over w in [p_i, p_{i+1}) is attained at w = p_i (product constant, (log w)^2 increasing)."""
+    best = 1.0
+    cands = sorted(set([2] + list(ps)))
+    for w in cands:
+        if w >= z:
+            continue
+        prod = 1.0
+        for p in ps:
+            if w <= p < z:
+                prod /= (1 - float(g[p]))
+        best = max(best, prod * (math.log(w) / math.log(z)) ** 2)
+    return best
+
+
+def F_sk(s, k):
+    return 1 - (s + 3) / (2 * math.exp(k)) * (2 * math.e * k / (s - 3)) ** ((s - 3) / 2)
+
+
 def goldbach_case(N: int, Q: tuple[int, ...], z: float, s: float):
     """Exact test on a_n for one N with sifting primes P = primes < z not in Q."""
     odd = N % 2 == 1
@@ -152,7 +174,16 @@ def goldbach_case(N: int, Q: tuple[int, ...], z: float, s: float):
     if bracket < 0:                       # trivial case: S >= 0 > a5
         assert a5 < 0
     assert S >= a5 - 1e-9, f"{tag}: (A5) fails S={S} < {a5}"
-    return S, float(lower), a5
+    # (A6) in the range of Theorem 4.1 (kappa = 2, local K at this z, s >= 2k+3):
+    #      Proposition 4.4 bound c*I*V <= 1 - F(s,k), and the theorem S >= X V F - 2 R_4
+    K = local_K(ps, g, z); k = 2 + math.log(K)
+    checkedF = False
+    if s >= 2 * k + 3:
+        F = F_sk(s, k)
+        assert c * I * V <= (1 - F) + 1e-12, f"{tag}: Prop 4.4 bound fails"
+        assert S >= X * V * F - 2 * float(R4) - 1e-9, f"{tag}: Theorem 4.1 fails"
+        checkedF = 2 if F > 0 else 1
+    return S, float(lower), a5, checkedF
 
 
 def main() -> int:
@@ -168,14 +199,15 @@ def main() -> int:
         check_identity_and_weights(ps, g, Y, z, f"rand#{i}")
     print(f"random densities: {nrand} cases, (A2)(A3)(A4) OK")
     # actual Goldbach sequences
-    n = 0
+    n = nF = npos = 0
     for N in list(range(41, 400, 2)) + list(range(42, 400, 2)) + [1001, 2023, 4096, 9999]:
         for Q in ((3,), (3, 5)):
             for z in (6.5, 11.5, 14.0, 18.0):
-                for s in (2.0, 3.0, 4.5):
-                    goldbach_case(N, Q, z, s)
-                    n += 1
-    print(f"Goldbach sequences: {n} cases, (A1)-(A5) OK")
+                for s in (2.0, 3.0, 4.5, 7.5, 9.0, 11.0, 15.0, 17.0, 20.0, 24.0):
+                    _, _, _, cf = goldbach_case(N, Q, z, s)
+                    n += 1; nF += cf > 0; npos += cf == 2
+    print(f"Goldbach sequences: {n} cases, (A1)-(A5) OK; "
+          f"(A6) Proposition 4.4 and Theorem 4.1 checked in {nF} cases with s >= 2k+3, {npos} of them with F > 0")
     return 0
 
 

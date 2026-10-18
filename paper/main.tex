@@ -66,21 +66,20 @@ positive integers $a,b$ such that $\Omega(ab)\le 32$, where $\Omega$
 counts prime factors with multiplicity. This improves the bound
 $\Omega(ab)\le33$ of Campbell. The argument stays inside Campbell's
 framework, the explicit Friedlander--Iwaniec lower-bound sieve applied to
-the products $n(N-n)$. Three elementary reductions show that only odd $N$
-need a new estimate, with sifting level $z=(N^2/8)^{1/32}$. We close that
-case with a per-interval dimension constant, per-interval sieve parameters
+the products $n(N-n)$. Three elementary reductions lead to a sieve
+estimate at a level depending on the parity of $N$; the hard case is odd
+$N$, with $z=(N^2/8)^{1/32}$. We close it with a per-interval dimension constant, per-interval sieve parameters
 and pre-sieving by both $3$ and $5$. The intermediate range is certified in ball arithmetic over
 $117\,415$ intervals, and the large range by a monotonicity argument; the
-even case is certified in the same way. We also prove that the explicit
-Friedlander--Iwaniec lower bound holds when the dimension condition is
-imposed only at the sifting level, the reading that Campbell's argument
-requires.
+even case is certified in the same way. For completeness we include a
+self-contained proof of the explicit Friedlander--Iwaniec lower bound with
+the dimension condition imposed only at the sifting level.
 \end{abstract}
 
 \begin{keyword}
 Almost primes \sep Goldbach-type theorems \sep sieve methods \sep
 explicit bounds \sep ball arithmetic
-\MSC[2020] 11P32 \sep 11N36 \sep 11N05
+\MSC[2020] 11P32 \sep 11N36 \sep 11Y35
 \end{keyword}
 
 \end{frontmatter}
@@ -123,12 +122,14 @@ Campbell applies Theorem~\ref{thm:FI} with the dimension condition read at
 the sifting level only (``for each value of $z$ under
 consideration''~\cite[(2.1)]{Campbell2026}); the global reading, over all
 pairs $2\le w<z'$, would force $K\ge2$, which is incompatible with his
-constant $K=1.146$ (Remark~\ref{rem:global}). Theorem~\ref{thm:local}
-proves that this local reading suffices; the proof, in
-Appendix~\ref{app:sieve}, follows Selberg's $\Lambda^-\Lambda^2$
-construction and needs the dimension condition only through a Rankin bound
-at the level $z$. The same argument removes this question from Campbell's
-proof of $\Omega(ab)\le33$.
+constant $K=1.146$ (Remark~\ref{rem:global}). For completeness we prove
+that this local reading suffices (Theorem~\ref{thm:local},
+Appendix~\ref{app:sieve}). We do not claim novelty for this statement: the
+proof is Selberg's $\Lambda^-\Lambda^2$ argument as presented by
+Blight~\cite{Blight2010}, the dimension condition enters only through a
+Rankin bound at the level $z$, and the statement may well be implicit
+in~\cite[\S7]{FI2010}; we include it so that the paper does not depend on
+how the condition is read.
 
 \paragraph{Where $33$ comes from}
 The bound $33$ comes only from odd $N$. With $z=N^{1/r}$ and $a_n<N^2$,
@@ -333,9 +334,10 @@ $a,b\ge1$ with $N=a+b$ and $\Omega(ab)\le32$.
 \end{lemma}
 
 \begin{proof}
-Since $N>N_0$ we have $z>(N_0^2/4)^{1/33}>36$, so $z>5$. As in the proof of
-Lemma~\ref{lem:odd} below, there is $n\in I_Q$ such that $a_n=n(N-n)$ has
-no prime factor less than $z$. Let $t=\Omega(a_n)$. Since
+Since $N>N_0$ we have $z>(N_0^2/4)^{1/33}>36$, so $z>5$. As $S(\cA,z)>0$
+there is $n\in I_Q$ with $(a_n,P(z))=1$; since no $q\in Q$ divides $a_n$
+and $\cP$ contains every other prime, $a_n=n(N-n)$ has no prime factor
+less than $z$. Let $t=\Omega(a_n)$. Since
 $a_n\le N^2/4=z^{33}$, we have $z^t\le a_n\le z^{33}$, so $t\le33$, and
 $t=33$ would force $a_n=z^{33}$ with every prime factor equal to $z$; then
 $z$ is a prime and $(N/2)^2=z^{33}$ is a square, which is impossible since
@@ -420,7 +422,7 @@ $(2,16.5)$ for even $N$.
 
 \begin{theorem}[the lower bound at a fixed level]\label{thm:local}
 Let $\cA$, $\cP$, $g$ and $r_d$ be as in Section~\ref{sec:notation}, fix
-$z\ge2$, and let $\kappa\ge0$ and $K\ge1$ be such that
+$z\ge2$, and let $\kappa>0$ and $K\ge1$ be such that
 \begin{equation}\label{eq:dimlocal}
   \prod_{\substack{w\le p<z\\ p\in\cP}}(1-g(p))^{-1}
   \le K\Bigl(\frac{\log z}{\log w}\Bigr)^{\kappa}
@@ -436,16 +438,16 @@ Definition~\ref{def:dim} as written in~\cite[(2.1)]{Campbell2026}; it is
 proved in Appendix~\ref{app:sieve}. Campbell's Lemma~4.1(1) is stated
 ``for every $z\ge z_0$ and every $2\le w<z$'', and he explicitly uses ``the
 restrictions $z\ge z_0$ \ldots rather than estimates uniform over a larger
-range''~\cite[\S4]{Campbell2026}; Theorem~\ref{thm:local} is exactly what
-that use requires. From now on all applications of the sieve are through
+range''~\cite[\S4]{Campbell2026}; this is the form of the statement that
+such a use needs. From now on all applications of the sieve are through
 Theorem~\ref{thm:local} with $\kappa=2$.
 
 \begin{remark}[the global reading]\label{rem:global}
 Suppose~\eqref{eq:dim} were required for all pairs $2\le w<z'$, for every
 $z'$. With $w=2$ and $z'\to2^+$ the product equals $(1-g(2))^{-1}=2$, while
 $(\log z'/\log2)^2\to1$; this forces $K\ge2>1.146$. (With $w=5$ and
-$z'\to5^+$ one obtains $K\ge5/3$.) Hence~\C{} already relies on a reading
-that is not global. A hypothetical reading ``for all
+$z'\to5^+$ one obtains $K\ge5/3$.) So the constants of~\C{} are
+compatible only with a reading that is not global. A hypothetical reading ``for all
 $z'\in[z_0,z]$'' would save~\C{} but not the present argument, since it
 amounts to a uniform constant, which fails here
 (Section~\ref{subsec:uniform}). Theorem~\ref{thm:local} makes the question
@@ -456,14 +458,17 @@ moot.
 The argument of Appendix~\ref{app:sieve} is Selberg's $\Lambda^-\Lambda^2$
 construction as presented in Blight's thesis~\cite[\S\S2.2--2.3]{Blight2010}
 (advisor H.~Iwaniec), where the dimension condition enters only through
-the bound for $I(X,z)V(z)$ quoted from~\cite[p.~111]{FI2010}. We replace
+the bound for $I(U,z)V(z)$ quoted from~\cite[p.~111]{FI2010}. We replace
 that quotation by Proposition~\ref{prop:rankinK}, which uses the condition
 at the level $z$ only.
 \end{remark}
 
-Proposition~\ref{prop:rankinK} gives the Rankin bound for $I(X,z)$ with
-general $K$, using the dimension condition only at the level $z$; it is
-the analytic input of Theorem~\ref{thm:local}.
+Let $h(p)=g(p)/(1-g(p))$ for $p\in\cP$, extended multiplicatively to
+square-free integers composed of primes of $\cP$, and for $U\ge1$ put
+$I(U,z)=\sum_{d\mid P(z),\,d\ge U}h(d)$; note that
+$V(z)^{-1}=\sum_{d\mid P(z)}h(d)$. Proposition~\ref{prop:rankinK} gives the
+Rankin bound for $I(U,z)$ with general $K$, using the dimension condition
+only at the level $z$; it is the analytic input of Theorem~\ref{thm:local}.
 
 \begin{proposition}\label{prop:rankinK}
 Fix $z$ and let $g$ satisfy $0<g(p)<1$ for $p\in\cP$. Put
@@ -471,24 +476,25 @@ $\cL_z(t)=\sum_{t\le p<z,\,p\in\cP}-\log(1-g(p))$ and suppose
 \[
   \cL_z(t)\le\kappa\log\frac{\log z}{\log t}+\log K\qquad(2\le t<z).
 \]
-Let $k=\kappa+\log K$ and $u=\log X/\log z$. If $u\ge k$, then
+Let $\kappa>0$, $K\ge1$, $k=\kappa+\log K$ and $u=\log U/\log z$. If $u\ge k$, then
 \[
-  I(X,z)V(z)\le e^{-k}\Bigl(\frac{ek}{u}\Bigr)^{u}.
+  I(U,z)V(z)\le e^{-k}\Bigl(\frac{ek}{u}\Bigr)^{u}.
 \]
 With $u=t/2$ this is $e^{-k}(2ek/t)^{t/2}$; with $u=(s-3)/2$ it gives
 $F(s,k)$, including the condition $s\ge2k+3$.
 \end{proposition}
 
 \begin{proof}
-For $\varepsilon>0$,
-$I(X,z)\le X^{-\varepsilon}\prod_{p<z}(1+h(p)p^{\varepsilon})$ and
+If $u=k$ the right-hand side equals $1$, and $I(U,z)\le V(z)^{-1}$; so
+assume $u>k$. For $\varepsilon>0$,
+$I(U,z)\le U^{-\varepsilon}\prod_{p<z}(1+h(p)p^{\varepsilon})$ and
 $V(z)^{-1}=\prod_{p<z}(1+h(p))$. Since
 $(1+hp^{\varepsilon})/(1+h)=1+g(p)(p^{\varepsilon}-1)$,
 \[
-  I(X,z)V(z)\le X^{-\varepsilon}\prod_{p<z}\bigl(1+g(p)(p^{\varepsilon}-1)\bigr)
-  \le\exp\Bigl(-\varepsilon\log X+\sum_{p<z}g(p)(p^{\varepsilon}-1)\Bigr).
+  I(U,z)V(z)\le U^{-\varepsilon}\prod_{p<z}\bigl(1+g(p)(p^{\varepsilon}-1)\bigr)
+  \le\exp\Bigl(-\varepsilon\log U+\sum_{p<z}g(p)(p^{\varepsilon}-1)\Bigr).
 \]
-Take $\varepsilon=c/\log z$ and $f(t)=t^{\varepsilon}-1$, which is
+Take $\varepsilon=c/\log z$ with $c>0$ and $f(t)=t^{\varepsilon}-1$, which is
 non-negative and increasing. Since $g\le-\log(1-g)$, partial summation gives
 $\sum_{p<z}g(p)f(p)\le f(2)\cL_z(2)+\int_2^zf'(t)\cL_z(t)\,dt$. Insert the
 hypothesis. The $\log K$ terms give $\log K\,(f(2)+\int_2^zf')=\log K\,(e^c-1)$.
@@ -499,8 +505,7 @@ turns the $\kappa$ terms into
   =\kappa\int_{\varepsilon\log2}^{c}\frac{e^v-1}{v}\,dv\le\kappa(e^c-1),
 \]
 because $(e^v-1)/v\le e^v$. The total is at most $k(e^c-1)$, so
-$I(X,z)V(z)\le\exp(-cu+k(e^c-1))$. Choosing $e^c=u/k$ (which needs
-$u\ge k$) gives the claim.
+$I(U,z)V(z)\le\exp(-cu+k(e^c-1))$. Choosing $e^c=u/k>1$ gives the claim.
 \end{proof}
 
 \subsection{\texorpdfstring{Pre-sieving by $Q=\{3,5\}$}{Pre-sieving by Q=\{3,5\}}}\label{subsec:Q35}
@@ -584,7 +589,7 @@ responsible for the largest values of $K$''~\cite[\S6]{Campbell2026}.
 \subsection{The dimension constant on an interval}
 
 \begin{lemma}\label{lem:Kcell}
-Let $I=(u,v]$ with $u\ge u_0$ and let
+Let $I=(u,v]$ with $u\ge u_0^{\mathrm{e}}$ (note $u_0^{\mathrm{e}}<u_0$) and let
 \[
   K_I\ \ge\ \sup_{z\in I}\ \sup_{2\le w<z}\
   \prod_{\substack{w\le p<z\\ p\in\cP}}(1-g^*(p))^{-1}
@@ -708,7 +713,7 @@ Code and output are listed under the Code availability statement.
 
 \paragraph{Cells}
 Geometric cells of ratio $1+10^{-4}$ from $u_0$ to $10^6$; above $10^6$,
-cells $[b_j,b_{j+1})$ with integer endpoints and relative step
+cells $(b_j,b_{j+1}]$ with integer endpoints and relative step
 $2\cdot10^{-4}$ on $[10^6,10^7]$ and $5\cdot10^{-4}$ on $[10^7,10^8]$. The
 code checks that consecutive cells share endpoints, that the first starts
 at $u_0$ and that the last ends exactly at $10^8$.
@@ -716,7 +721,7 @@ at $u_0$ and that the last ends exactly at $10^8$.
 \paragraph{Dimension constant}
 For cells below $10^6$, $K_I$ is computed from the exact candidates of
 Lemma~\ref{lem:Kcell} ($z\to u^+$, $z\to q^+$, $w$ prime), one ball per
-prime. For block cells $z\in[b_j,b_{j+1})$ we use
+prime. For block cells $z\in(b_j,b_{j+1}]$ we use
 \[
   \log K_I\le L_{\mathrm{hi}}(b_{j+1})-2\log\log b_j+\max_{w<b_{j+1}}H(w),
   \qquad H(w)=2\log\log w-L(w),
@@ -752,7 +757,7 @@ $e_\delta(x)=\log(1+8x^{-\delta})$ satisfies
 \]
 The resulting enclosures are narrow: for $Q=\{3\}$,
 \[
-  L(10^8)\in[5.604898186,\ 5.604898205],
+  L(10^8)\in[5.604898185,\ 5.604898206],
 \]
 and the excess in $E_\delta(10^8)$
 ranges from $6\cdot10^{-8}$ ($\delta\approx0.99$) to $5\cdot10^{-3}$
@@ -768,9 +773,10 @@ program primesieve~12.17, with no mismatch.
 
 \paragraph{Floating point versus certified}
 The floating-point margins differ from the certified ones by at most
-$1.8\cdot10^{-13}$ over all covers; the certification guards against
-programming errors, the monotonicity arguments and the junction at $10^8$,
-not against rounding. Table~\ref{tab:decades} lists the minimal certified
+$1.8\cdot10^{-13}$ over all covers. Rounding is therefore not the issue;
+ball arithmetic makes every bound used in the proof a proven inequality,
+and the separate implementations below guard, to some extent, against
+programming errors. Table~\ref{tab:decades} lists the minimal certified
 margin in each decade.
 
 \begin{table}[H]
@@ -814,7 +820,7 @@ Both stay above $0$; the dots are the minima of Table~\ref{tab:margins}
 \includegraphics[width=0.8\textwidth]{figs/F2.pdf}
 \caption{The certified upper bound $K_I$ for the dimension constant in each
 cell (maximum per bin). The per-cell values fall below $1.01$ ($Q=\{3,5\}$)
-and $1.04$ ($Q=\{3\}$) after $z\approx10^3$, while a uniform constant must
+after $z\approx10^3$ and below $1.04$ ($Q=\{3\}$) after $z\approx2\cdot10^4$, while a uniform constant must
 cover the peak near $z\approx43$: Campbell's $1.146$ (dashed) and the
 supremum $1.08997$ for $Q=\{3,5\}$ both make the finite range fail
 (Section~\ref{subsec:uniform}).}
@@ -826,12 +832,11 @@ A separate floating-point implementation, not importing the main code
 ($147\,347$ geometric cells with $\varepsilon=10^{-4}$, up to exactly
 $10^8$), finds the minimum $+1.1188$ on $(10342.337,\,10343.371]$ with no
 failing cell. A per-prime evaluation without Jensen bounds (own sieve,
-mpmath) agrees with the certificate within $10^{-8}$ on $7$ cells, and on
-the block cell $(31\,305\,688,\,31\,321\,341]$ the exact sum gives a larger
-margin than the certificate ($6.683914226>6.683914135$), as it must. The identity of Lemma~\ref{lem:identity} was checked exactly
+mpmath) agrees with the certificate within $2\cdot10^{-8}$ on $7$ cells,
+and on each of them the certificate is the smaller value, as it must be. The identity of Lemma~\ref{lem:identity} was checked exactly
 (rational arithmetic) for $859$ odd $N$ and all $d\mid2\cdot7\cdot11\cdot13\cdot17$,
-and Lemma~\ref{lem:quad} by brute force for odd $N\le2000$, with no
-violation; these checks cover only small odd $N$.
+and Lemma~\ref{lem:quad} by brute force for odd $N<1500$ and $60$ values
+of $N$ near $30031$, with no violation; these checks cover only small odd $N$.
 
 \subsection{\texorpdfstring{The analytic range $z\ge10^8$}{The analytic range}}
 
@@ -1037,7 +1042,7 @@ even, $Q=\{3\}$    & $N=2z^{16}$ & $-0.274$ & negative on $[4659,\,5.6\cdot10^4]
 \end{table}
 
 The deficit of $4$ to $5$ in the logarithm for odd $N$ cannot be closed by
-constants; it seems to require a weighted sieve (Kuhn, Richert) or a better
+constants; it seems to require a weighted sieve or a better
 factor than $F(s,k)$, as suggested in~\cite[\S6]{Campbell2026}.
 Figure~\ref{fig:31} shows the profiles for $Q=\{3\}$ and $Q=\{3,5\}$.
 
@@ -1052,6 +1057,120 @@ the same computation for the bound $32$, which is positive (certified in
 Figure~\ref{fig:margin}).}
 \label{fig:31}
 \end{figure}
+
+\appendix
+\section{Proof of Theorem~\ref{thm:local}}\label{app:sieve}
+
+Throughout this appendix $z$ is fixed, $\cA$, $\cP$, $g$, $X$, $r_d$ are as
+in Section~\ref{sec:notation}, and all divisors $d,e,m$ run over divisors
+of $P(z)$; they are square-free. The weights $\theta_e$ below are not the
+remainders $\rho_\ell$ of~\eqref{eq:rho}, and $Y_0$ is not $Y=N-1$. With
+$h$ and $I(U,z)$ as in Section~\ref{subsec:local}, $h(p)>0$ and
+$V(z)^{-1}=\prod_{p\mid P(z)}(1+h(p))=\sum_{d\mid P(z)}h(d)$.
+Let $D=z^s$ with $s\ge2k+3\ge3$ and $Y_0=\sqrt{D/z}=z^{(s-1)/2}\ge z$.
+
+\paragraph{A.1 Weights}
+Let $\psi(d)=\min\{1,\log(Y_0/d)/\log z\}$ for $d<Y_0$ and $\psi(d)=0$ for $d\ge Y_0$;
+then $0\le\psi\le1$, $\psi(1)=1$, and $\log d\mapsto \psi(d)$ is
+$(1/\log z)$-Lipschitz. Put $J=\sum_d h(d)\psi(d)$, so $1\le J\le V(z)^{-1}$,
+$y_d=\psi(d)/J$, and define $\theta_e$ by
+\begin{equation}\label{eq:thetay}
+  g(e)\theta_e=\mu(e)\sum_{d:\,e\mid d}h(d)y_d .
+\end{equation}
+Then $\theta_1=\sum_dh(d)y_d=1$ and $\theta_e=0$ for $e\ge Y_0$. Moreover
+$|\theta_e|\le1$: since $h(e)/g(e)=\prod_{p\mid e}(1+h(p))=\sum_{t\mid e}h(t)$,
+\[
+  |\theta_e|=\frac1J\sum_{t\mid e}\ \sum_{f:\,(f,e)=1}h(t)h(f)\,\psi(ef)
+  \le\frac1J\sum_{t\mid e}\ \sum_{f:\,(f,e)=1}h(tf)\,\psi(tf)\le1,
+\]
+because $\psi$ is non-increasing, $tf\le ef$, and distinct pairs $(t,f)$ give
+distinct $d=tf$. M\"obius inversion of~\eqref{eq:thetay} gives
+\begin{equation}\label{eq:Fe}
+  \sum_{m:\,e\mid m}g(m)\theta_m=\mu(e)h(e)y_e .
+\end{equation}
+
+\paragraph{A.2 The lower bound sieve}
+For every integer $a$,
+\[
+  \mathbf 1_{(a,P(z))=1}\ \ge\ \Bigl(1-\sum_{p\mid(a,P(z))}1\Bigr)
+  \Bigl(\sum_{d\mid(a,P(z))}\theta_d\Bigr)^2 ,
+\]
+since both sides equal $1$ if $(a,P(z))=1$, and otherwise the first factor
+is $\le0$. Summing over $n$ gives $S(\cA,z)\ge\sum_d\lambda_d|\cA_d|$ with
+\[
+  \lambda_d=\lambda^+_d-\sum_{p\mid d}\bigl(\lambda^+_d+\lambda^+_{d/p}\bigr),
+  \qquad
+  \lambda^+_d=\sum_{[d_1,d_2]=d}\theta_{d_1}\theta_{d_2},
+\]
+hence $S(\cA,z)\ge XV(D,z)-\sum_d|\lambda_d||r_d|$ with
+$V(D,z)=\sum_d\lambda_dg(d)$.
+
+\paragraph{A.3 The main term}
+Since $g([d_1,d_2])=g(d_1)g(d_2)/g((d_1,d_2))$ and
+$1/g(m)=\sum_{e\mid m}1/h(e)$, \eqref{eq:Fe} gives
+$\sum_{d_1,d_2}\theta_{d_1}\theta_{d_2}g([d_1,d_2])=\sum_eh(e)y_e^2$. For a
+fixed $p$, write $d_i=p^{\varepsilon_i}d_i'$ with $p\nmid d_i'$; then
+$g([p,d_1,d_2])=g(p)g([d_1',d_2'])$, and the same diagonalisation over
+$p\nmid e$, with $\sum_{e\mid m,\,p\nmid m}g(m)(\theta_m+\theta_{pm})
+=\mu(e)h(e)(y_e-y_{pe})$ by~\eqref{eq:Fe}, gives
+\begin{equation}\label{eq:VDz}
+  V(D,z)=\sum_dh(d)y_d^2-\sum_{p\nmid d}g(p)h(d)\bigl(y_d-y_{pd}\bigr)^2 .
+\end{equation}
+This is~\cite[(2.3)]{Blight2010}. Using $g(p)\le h(p)$ and putting $m=pd$,
+\[
+  V(D,z)\ge\sum_mh(m)\Bigl(y_m^2-\sum_{p\mid m}(y_{m/p}-y_m)^2\Bigr).
+\]
+If $m\le Y_0/z$, then $\psi(m/p)=\psi(m)=1$; if $m\ge Yz$, then $m/p>Y_0$ and
+$\psi(m/p)=\psi(m)=0$; in both cases the inner sum vanishes. If $Y_0/z<m<Yz$, the
+Lipschitz property gives
+$\sum_{p\mid m}(y_{m/p}-y_m)^2\le J^{-2}\sum_{p\mid m}(\log p/\log z)^2
+\le J^{-2}\log m/\log z$, as $p<z$. Dropping $y_m^2\ge0$ on this range,
+\[
+  J^2V(D,z)\ \ge\sum_{m\le Y_0/z}h(m)-\frac{\log(Yz)}{\log z}\sum_{m>Y_0/z}h(m)
+  \ \ge\ V(z)^{-1}-\frac{\log(Yz^2)}{\log z}\,I(Y_0/z,z),
+\]
+and $\log(Yz^2)/\log z=(s+3)/2$. (In~\cite[\S2.3]{Blight2010} the
+normalisation is written $J=\sum_{d\le Y_0}h(d)$; the argument only needs
+$\theta_1=1$ and $J\le V(z)^{-1}$, which hold for the $J$ above.)
+
+\paragraph{A.4 The remainder}
+For $d$ with $\omega(d)=\omega\ge1$, $|\lambda^+_d|\le3^{\omega}$ because
+$|\theta|\le1$, so $|\lambda_d|\le(\omega-1)3^{\omega}+\omega3^{\omega-1}
+=3^{\omega-1}(4\omega-3)\le1.38\cdot4^{\omega}\le2\tau_4(d)$, and
+$\lambda_1=1$. If $\lambda_d\ne0$, then $d\mid p\,d_1d_2$ with $p<z$ and
+$d_1,d_2<Y_0$, so $d<zY_0^2=D$. Hence $\sum_d|\lambda_d||r_d|\le2R_4(\cA,D)$,
+using $r_1=0$.
+
+\paragraph{A.5 Conclusion}
+Apply Proposition~\ref{prop:rankinK} with $U=Y_0/z$, so that
+$u=\log U/\log z=(s-3)/2\ge k$:
+\[
+  \frac{s+3}{2}\,I(Y_0/z,z)V(z)\le\frac{s+3}{2e^{k}}
+  \Bigl(\frac{2ek}{s-3}\Bigr)^{(s-3)/2}=1-F(s,k).
+\]
+If $F(s,k)\le0$, the claim $S(\cA,z)\ge XV(z)F(s,k)-2R_4(\cA,D)$ is
+trivial, since $S(\cA,z)\ge0$. If $F(s,k)>0$, A.3 gives
+$J^2V(D,z)V(z)\ge F(s,k)>0$, and $J\le V(z)^{-1}$ gives
+$V(D,z)\ge F(s,k)/(J^2V(z))\ge V(z)F(s,k)$. By A.2 and A.4,
+$S(\cA,z)\ge XV(z)F(s,k)-2R_4(\cA,D)$. The dimension condition was used
+only in Proposition~\ref{prop:rankinK}, at the level $z$. \qed
+
+\paragraph{Numerical check}
+The script \texttt{test\_local\_sieve.py} in the directory
+\texttt{certificate/local\_sieve} of the repository (output file
+\texttt{out\_test\_local\_sieve.txt}) tests these steps for $300$ random densities and for the sequences $\cA$ of
+this paper with $Q=\{3\}$ and $\{3,5\}$, odd $N$ and even $N$ in
+$[41,400)$ together with four larger values up to $9999$, $z\le18$ and
+$s\in[2,24]$ ($29\,040$ cases), with no violation. With the weights
+$\psi(d)$ replaced by rational approximations, the identity~\eqref{eq:VDz},
+$\theta_1=1$, $|\theta_e|\le1$, $|\lambda_d|\le2\tau_4(d)$, the support
+$d<D$ and the inequality $S(\cA,z)\ge\sum_d\lambda_d|\cA_d|$ are checked in
+exact rational arithmetic; the bound of A.3, Proposition~\ref{prop:rankinK}
+and the conclusion $S(\cA,z)\ge XV(z)F(s,k)-2R_4(\cA,D)$ (with $\kappa=2$
+and the smallest $K$ allowed at this $z$) are checked in floating point
+with a relative tolerance of $10^{-9}$, the last two in the $20\,328$ cases
+with $s\ge2k+3$, of which $11\,181$ have $F(s,k)>0$. The test checks the
+algebra; it is not part of the proof.
 
 %% =====================================================================
 \section*{Use of AI tools in the research}
@@ -1068,7 +1187,7 @@ the reading of~\eqref{eq:dim} in Section~\ref{subsec:local}, including
 the literature search behind Remark~\ref{rem:evidence};
 Proposition~\ref{prop:rankinK}; the proof of Theorem~\ref{thm:local} in
 Appendix~\ref{app:sieve}, including the case distinction on the sign of
-$F$, which was found by an exact rational test of each step
+$F$, which was found by a numerical test of each step
 (script \texttt{test\_local\_sieve.py}); and the
 treatment of even $N$ (Lemma~\ref{lem:even}). It wrote all the code of the certificate
 (prime sieve, ball-arithmetic bounds, cell cover, analytic range) and the
@@ -1080,7 +1199,8 @@ consistency, not independent human verification. The checks that do not
 rely on AI-written arithmetic are the comparison of prime counts and block
 sums with primesieve~12.17 and of $\pi(10^k)$, $k\le10$, with known
 values. The author checked every proof by hand; the certificate is
-deterministic and reproduces bit for bit from the published code
+deterministic, and re-running the published code reproduces all
+certificate outputs bit for bit except the wall-clock timing lines
 (Code availability statement).
 
 %% =====================================================================
@@ -1095,7 +1215,7 @@ and sums of primes per block up to $10^{10}$), \texttt{check\_blocks.py}
 (comparison with primesieve), \texttt{rlib.py} (ball arithmetic),
 \texttt{run\_cover.py} (finite range), \texttt{analytic.py} (analytic
 range), \texttt{test\_local.py} (brute force of the local lemmas),
-\texttt{test\_local\_sieve.py} (exact test of Appendix~\ref{app:sieve}), and
+\texttt{test\_local\_sieve.py} (numerical test of the algebra of Appendix~\ref{app:sieve}), and
 their outputs. Environment: Python 3.14.4, python-flint 0.9.0, numpy 2.5.4,
 mpmath 1.3.0, primesieve 12.17; no GPU. The main finite cover
 (\texttt{run\_cover.py 3,5 1e8 interval}) runs in about $40$\,s; the even
@@ -1118,7 +1238,8 @@ f44c4b01fddeb9b4b6e933fe291daedf3b84247dce68b24abe6490bce1c44b9a  rlib.py
 0acb487e5dd3bffef14ce2c5a9b358d41cf19b06e53015349af49c713f236c5a  run_cover.py
 84483ca099c5029ab112e445ab48e26542f2cf9af4f2770745d56628c7732356  analytic.py
 4e901d77dfc171bce886f9924b9d8a0e59eb26b0b517a7ec53198cb7c552d86f  primes_blocks.py
-a3836429b27e1e51c24002bdddc528274f01793f23cfe49781579efce709949b  test_local_sieve.py
+f87ba8e8369686cc06c1db203828e79f5f70a8b90f0bf1cdf20fc91b858365f8  test_local_sieve.py
+5e21da3a192ba96e952c4e29602894e695703b6a7c49a7526e93fd5c97457ee1  out_test_local_sieve.txt
 \end{verbatim}
 \endgroup
 
@@ -1145,115 +1266,6 @@ commercial, or not-for-profit sectors.
 \section*{Declaration of competing interest}
 The author declares no competing interests.
 
-\appendix
-\section{Proof of Theorem~\ref{thm:local}}\label{app:sieve}
-
-Throughout this appendix $z$ is fixed, $\cA$, $\cP$, $g$, $X$, $r_d$ are as
-in Section~\ref{sec:notation}, and all divisors $d,e,m$ run over divisors
-of $P(z)$; they are square-free. Put $h(p)=g(p)/(1-g(p))>0$ for $p\mid P(z)$,
-extended multiplicatively, so that
-\[
-  V(z)^{-1}=\prod_{p\mid P(z)}(1+h(p))=\sum_{d\mid P(z)}h(d),\qquad
-  I(X,z)=\sum_{d\mid P(z),\,d\ge X}h(d).
-\]
-Let $D=z^s$ with $s\ge2k+3\ge3$ and $Y=\sqrt{D/z}=z^{(s-1)/2}\ge z$.
-
-\paragraph{A.1 Weights}
-Let $w(d)=\min\{1,\log(Y/d)/\log z\}$ for $d<Y$ and $w(d)=0$ for $d\ge Y$;
-then $0\le w\le1$, $w(1)=1$, and $\log d\mapsto w(d)$ is
-$(1/\log z)$-Lipschitz. Put $J=\sum_d h(d)w(d)$, so $1\le J\le V(z)^{-1}$,
-$y_d=w(d)/J$, and define $\rho_e$ by
-\begin{equation}\label{eq:rhoy}
-  g(e)\rho_e=\mu(e)\sum_{d:\,e\mid d}h(d)y_d .
-\end{equation}
-Then $\rho_1=\sum_dh(d)y_d=1$ and $\rho_e=0$ for $e\ge Y$. Moreover
-$|\rho_e|\le1$: since $h(e)/g(e)=\prod_{p\mid e}(1+h(p))=\sum_{t\mid e}h(t)$,
-\[
-  |\rho_e|=\frac1J\sum_{t\mid e}\ \sum_{f:\,(f,e)=1}h(t)h(f)\,w(ef)
-  \le\frac1J\sum_{t\mid e}\ \sum_{f:\,(f,e)=1}h(tf)\,w(tf)\le1,
-\]
-because $w$ is non-increasing, $tf\le ef$, and distinct pairs $(t,f)$ give
-distinct $d=tf$. M\"obius inversion of~\eqref{eq:rhoy} gives
-\begin{equation}\label{eq:Fe}
-  \sum_{m:\,e\mid m}g(m)\rho_m=\mu(e)h(e)y_e .
-\end{equation}
-
-\paragraph{A.2 The lower bound sieve}
-For every integer $a$,
-\[
-  \mathbf 1_{(a,P(z))=1}\ \ge\ \Bigl(1-\sum_{p\mid(a,P(z))}1\Bigr)
-  \Bigl(\sum_{d\mid(a,P(z))}\rho_d\Bigr)^2 ,
-\]
-since both sides equal $1$ if $(a,P(z))=1$, and otherwise the first factor
-is $\le0$. Summing over $n$ gives $S(\cA,z)\ge\sum_d\lambda_d|\cA_d|$ with
-\[
-  \lambda_d=\lambda^+_d-\sum_{p\mid d}\bigl(\lambda^+_d+\lambda^+_{d/p}\bigr),
-  \qquad
-  \lambda^+_d=\sum_{[d_1,d_2]=d}\rho_{d_1}\rho_{d_2},
-\]
-hence $S(\cA,z)\ge XV(D,z)-\sum_d|\lambda_d||r_d|$ with
-$V(D,z)=\sum_d\lambda_dg(d)$.
-
-\paragraph{A.3 The main term}
-Since $g([d_1,d_2])=g(d_1)g(d_2)/g((d_1,d_2))$ and
-$1/g(m)=\sum_{e\mid m}1/h(e)$, \eqref{eq:Fe} gives
-$\sum_{d_1,d_2}\rho_{d_1}\rho_{d_2}g([d_1,d_2])=\sum_eh(e)y_e^2$. For a
-fixed $p$, write $d_i=p^{\varepsilon_i}d_i'$ with $p\nmid d_i'$; then
-$g([p,d_1,d_2])=g(p)g([d_1',d_2'])$, and the same diagonalisation over
-$p\nmid e$, with $\sum_{e\mid m,\,p\nmid m}g(m)(\rho_m+\rho_{pm})
-=\mu(e)h(e)(y_e-y_{pe})$ by~\eqref{eq:Fe}, gives
-\begin{equation}\label{eq:VDz}
-  V(D,z)=\sum_dh(d)y_d^2-\sum_{p\nmid d}g(p)h(d)\bigl(y_d-y_{pd}\bigr)^2 .
-\end{equation}
-This is~\cite[(2.3)]{Blight2010}. Using $g(p)\le h(p)$ and putting $m=pd$,
-\[
-  V(D,z)\ge\sum_mh(m)\Bigl(y_m^2-\sum_{p\mid m}(y_{m/p}-y_m)^2\Bigr).
-\]
-If $m\le Y/z$, then $w(m/p)=w(m)=1$; if $m\ge Yz$, then $m/p>Y$ and
-$w(m/p)=w(m)=0$; in both cases the inner sum vanishes. If $Y/z<m<Yz$, the
-Lipschitz property gives
-$\sum_{p\mid m}(y_{m/p}-y_m)^2\le J^{-2}\sum_{p\mid m}(\log p/\log z)^2
-\le J^{-2}\log m/\log z$, as $p<z$. Dropping $y_m^2\ge0$ on this range,
-\[
-  J^2V(D,z)\ \ge\sum_{m\le Y/z}h(m)-\frac{\log(Yz)}{\log z}\sum_{m>Y/z}h(m)
-  \ \ge\ V(z)^{-1}-\frac{\log(Yz^2)}{\log z}\,I(Y/z,z),
-\]
-and $\log(Yz^2)/\log z=(s+3)/2$. (In~\cite[\S2.3]{Blight2010} the
-normalisation is written $J=\sum_{d\le Y}h(d)$; the argument only needs
-$\rho_1=1$ and $J\le V(z)^{-1}$, which hold for the $J$ above.)
-
-\paragraph{A.4 The remainder}
-For $d$ with $\omega(d)=\omega\ge1$, $|\lambda^+_d|\le3^{\omega}$ because
-$|\rho|\le1$, so $|\lambda_d|\le(\omega-1)3^{\omega}+\omega3^{\omega-1}
-=3^{\omega-1}(4\omega-3)\le1.38\cdot4^{\omega}\le2\tau_4(d)$, and
-$\lambda_1=1$. If $\lambda_d\ne0$, then $d\mid p\,d_1d_2$ with $p<z$ and
-$d_1,d_2<Y$, so $d<zY^2=D$. Hence $\sum_d|\lambda_d||r_d|\le2R_4(\cA,D)$,
-using $r_1=0$.
-
-\paragraph{A.5 Conclusion}
-Apply Proposition~\ref{prop:rankinK} with $X=Y/z$, so that
-$u=\log X/\log z=(s-3)/2\ge k$:
-\[
-  \frac{s+3}{2}\,I(Y/z,z)V(z)\le\frac{s+3}{2e^{k}}
-  \Bigl(\frac{2ek}{s-3}\Bigr)^{(s-3)/2}=1-F(s,k).
-\]
-If $F(s,k)\le0$, the claim $S(\cA,z)\ge XV(z)F(s,k)-2R_4(\cA,D)$ is
-trivial, since $S(\cA,z)\ge0$. If $F(s,k)>0$, A.3 gives
-$J^2V(D,z)V(z)\ge F(s,k)>0$, and $J\le V(z)^{-1}$ gives
-$V(D,z)\ge F(s,k)/(J^2V(z))\ge V(z)F(s,k)$. By A.2 and A.4,
-$S(\cA,z)\ge XV(z)F(s,k)-2R_4(\cA,D)$. The dimension condition was used
-only in Proposition~\ref{prop:rankinK}, at the level $z$. \qed
-
-\paragraph{Numerical check}
-Every step of A.1--A.5 was tested in exact rational arithmetic by the
-script \texttt{test\_local\_sieve.py} of the repository
-(directory \texttt{certificate/local\_sieve}): the identity
-\eqref{eq:VDz}, $|\rho_e|\le1$, $|\lambda_d|\le2\tau_4(d)$, the support
-$d<D$, the bound of A.3 and the final inequality, for $300$ random
-densities and for the sequences $\cA$ of this paper with $Q=\{3\}$ and
-$\{3,5\}$, odd and even $N$ up to $9999$ and several $z$ and $s$
-($8712$ cases), with no violation. Deliberately wrong variants of
-$\lambda_d$, of~\eqref{eq:VDz} and of the normalisation are rejected.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{refs}
