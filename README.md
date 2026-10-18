@@ -40,16 +40,30 @@ Archived at Zenodo: [10.5281/zenodo.23456153](https://doi.org/10.5281/zenodo.234
 ## Requirements
 
 - Python ≥ 3.12 (developed with 3.14.4)
-- `python-flint` (0.9.0), `numpy` (2.5.4), `mpmath` (1.3.0, `crosscheck/`), `scipy` (1.18.1, `gate1/`), `matplotlib` (figures only)
-- [`primesieve`](https://github.com/kimwalisch/primesieve) CLI, optional, only for `check_blocks.py` (tested with 12.17)
+- `python-flint` (0.9.0), `numpy` (2.5.4), `mpmath` (1.3.0, `crosscheck/`), `scipy` (1.18.1, `gate1/`), `matplotlib` (3.11.2, figures only); exact pins in `requirements.txt`
+- [`primesieve`](https://github.com/kimwalisch/primesieve) CLI, optional, only for `check_blocks.py` (tested with 12.17); it is looked up on `PATH`, or set `PRIMESIEVE=/path/to/primesieve`
 
 ```bash
-pip install python-flint numpy mpmath scipy matplotlib
+python -m venv .venv && . .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 No GPU needed. Times below are on one CPU core of the author's workstation.
 
-## Reproducing
+## Verifying everything in one command
+
+```bash
+python certificate/verify_all.py          # about 5 min; --quick skips Appendix A test (~1.5 min)
+```
+
+It checks `SHA256SUMS`, re-runs every step below in a temporary directory (the shipped
+files are never touched) and compares each output with the shipped one: the cell files
+(`cells_*.npz`) and `data_*.json` must be identical, the text outputs identical up to run
+times and Python warning lines. It exits with status 0 only if every check passes. On a
+fresh clone with a fresh virtual environment (18 October 2026) all checks passed; with
+unpinned packages (`mpmath` 1.4.1) the outputs were also identical.
+
+## Reproducing step by step
 
 All scripts locate `blocks.npz` relative to their own path. Step 3 overwrites
 `out_*.txt`, `data_*.json` and `cells_*.npz` in the **current directory**; to compare
@@ -60,18 +74,23 @@ without touching the shipped files, run from a scratch directory
 cd certificate/rigoroso
 # 1) (optional) regenerate blocks.npz: segmented sieve up to 1e10 (~38 s, ~257 MB RAM)
 python primes_blocks.py 1e10
-# 2) check blocks.npz against primesieve (< 1 s)
+# 2) check blocks.npz against primesieve (< 1 s; needs the primesieve CLI, see Requirements)
 python check_blocks.py
 # 3) finite cover
 python run_cover.py 3,5 1e8 interval      # main chain, ~20-40 s
 python run_cover.py 3 1e10 interval       # alternative chain, ~43 s
 python run_cover.py 3,5 1e8 envelope      # scenario E, ~60 s
 python run_cover.py 3 1e8 uniform:1.146   # scenario U (expected to fail), ~40-55 s
+python run_cover.py 3,5 1e8 uniform:sup   # scenario U, sup of the per-cell K (expected to fail), ~40 s
 GB_PARITY=even python run_cover.py 3,5 1e8 interval   # even N, ~70 s (writes *_even outputs)
-# 4) analytic range (reads data_Q*.json from the current directory, <1 s each)
-python analytic.py 3,5 1e8
-python analytic.py 3 1e9
-GB_PARITY=even python analytic.py 3,5 1e8
+# 4) analytic range (reads data_Q*.json from the current directory, <1 s each).
+#    The two runs used by the proof:
+python analytic.py 3,5 1e8                       # odd N
+GB_PARITY=even python analytic.py 3,5 1e8        # even N  -> out_analytic_even.txt
+#    out_analytic.txt is the concatenated output of these eight runs (Table 2; an optional
+#    third argument K replaces the dimension constant by max(K, K_an(Y))):
+for a in "3,5 1e8" "3,5 1e8 1.08997" "3 1e8" "3 1e9" "3 1e10" "3 1e10 1.146" "3 1e9 1.097" "3 1e10 1.097"; do
+  python analytic.py $a; done
 # 5) brute force of the local lemmas and float vs. rigorous comparison (~40 s)
 python test_local.py
 # 6) separate (AI-written) re-verification (~10 s)
@@ -82,7 +101,23 @@ python ../local_sieve/test_local_sieve.py 300
 
 The `uniform` scenarios are meant to fail (they show that a single global constant
 does not suffice); their `.npz` cell files are not shipped, only the `.txt` outputs.
-`certificate/gate1/cover_cells.py` (float64 reimplementation) takes about 3 min.
+
+`out_analytic.txt` was written before `analytic.py` printed the label `(A-s)` (with
+A = 16 for odd N, 16.5 for even N) instead of `(16-s)`; every number in it is reproduced
+exactly by the current code. It is kept as is because its SHA-256 is quoted in the paper.
+
+Auxiliary checks (not part of the proof; float64, outputs in the same directories):
+
+```bash
+cd certificate
+python gate1/cover_cells.py 3,5 1e-4 && python gate1/cover_cells.py 3 1e-4   # ~1 min each
+python gate1/analytic_check.py && python gate1/sanity_paper.py
+python rankin/rk.py                                                          # Proposition 4.4, numerically
+python profiles/profile_general.py 3 1e8 "8**0.5" 16 "odd M=32"              # one line of out_profiles.txt
+```
+
+Their shipped outputs hold stdout only; NumPy `RuntimeWarning` lines (division by zero
+at p = 2, handled by `np.where`) go to stderr.
 
 Figures: `cd paper/figs && python make_figs.py` (reads `certificate/rigoroso/`).
 Paper: `cd paper && pdflatex main && bibtex main && pdflatex main && pdflatex main`

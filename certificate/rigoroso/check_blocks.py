@@ -1,8 +1,9 @@
-"""Independent cross-check of blocks.npz against the primesieve C++ CLI (~/src/primesieve/build/primesieve).
+"""Independent cross-check of blocks.npz against the primesieve C++ CLI (found on PATH, or set PRIMESIEVE=/path/to/primesieve).
 Counts for 60 random blocks + all blocks of 4 decade-spanning unions; exact sums for 12 random blocks (primesieve -p)."""
-import subprocess, numpy as np, os
-PS = os.path.expanduser("~/src/primesieve/build/primesieve")
-d = np.load("blocks.npz"); b, n, s1 = d["bounds"], d["n"], d["s1"]
+import subprocess, numpy as np, os, shutil
+PS = os.environ.get("PRIMESIEVE") or shutil.which("primesieve")
+assert PS, "primesieve CLI not found: install it or set PRIMESIEVE=/path/to/primesieve"
+d = np.load(os.path.join(os.path.dirname(os.path.abspath(__file__)), "blocks.npz")); b, n, s1 = d["bounds"], d["n"], d["s1"]
 rng = np.random.default_rng(12345)
 def ps_count(lo, hi):          # primes in [lo, hi)  -> primesieve counts [start, stop] inclusive
     out = subprocess.run([PS, str(lo), str(hi - 1), "-c"], capture_output=True, text=True).stdout
