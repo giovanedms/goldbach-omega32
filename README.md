@@ -21,7 +21,7 @@ condition imposed only at the sifting level; `certificate/local_sieve/test_local
 checks the algebra of that proof numerically (partly in exact rational arithmetic, partly
 in floating point).
 
-The paper is a **preprint, to be submitted to the Journal of Number Theory** (Computational Section).
+The paper is a **preprint, submitted to the Journal of Number Theory** (Computational Section) on 18 October 2026; it has not been peer reviewed.
 Archived at Zenodo: [10.5281/zenodo.23456153](https://doi.org/10.5281/zenodo.23456153) (all versions); release v1.0.0: [10.5281/zenodo.23456154](https://doi.org/10.5281/zenodo.23456154).
 
 ## Contents
