@@ -1,0 +1,10 @@
+odd M=32: Q=(3,) c=2.828 r=16.0 z0=39.916  min logratio=0.073 at z=1.619e+04 (s=14.44,d=0.84,K=1.0393); at z0: 22.99; at 1e8: 5.63
+odd M=32 Q35: Q=(3, 5) c=2.828 r=16.0 z0=39.916  min logratio=1.140 at z=1.619e+04 (s=14.30,d=0.84,K=1.0015); at z0: 23.81; at 1e8: 7.89
+odd M=31: Q=(3,) c=2.828 r=15.5 z0=44.957  min logratio=-5.312 at z=2.032e+05 (s=14.41,d=0.88,K=1.0375); at z0: 19.28; at 1e8: -3.57
+   negative on z in [534.4, 9.9e+07] (grid)
+even M=31: Q=(3,) c=2.000 r=16.0 z0=40.790  min logratio=-0.274 at z=1.619e+04 (s=14.44,d=0.84,K=1.0393); at z0: 22.95; at 1e8: 5.28
+   negative on z in [4659, 5.625e+04] (grid)
+odd M=31 Q35: Q=(3, 5) c=2.828 r=15.5 z0=44.957  min logratio=-3.947 at z=5.895e+04 (s=14.27,d=0.88,K=1.0006); at z0: 20.11; at 1e8: -1.31
+   negative on z in [684.5, 9.9e+07] (grid)
+odd M=31 Q357: Q=(3, 5, 7) c=2.828 r=15.5 z0=44.957  min logratio=-4.167 at z=5.895e+04 (s=14.27,d=0.88,K=1.0006); at z0: 20.85; at 1e8: -1.60
+   negative on z in [684.5, 9.9e+07] (grid)

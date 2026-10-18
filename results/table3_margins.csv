@@ -1,0 +1,7 @@
+scenario,Q,up_to,cells,failing,min_margin,cell_from,cell_to,source
+I,"{3, 5}",1e+08,117415,0,1.118347,10342.3367,10343.3709,out_cover_Q35_interval.txt
+I,{3},1e+10,122023,0,0.079236,15822.3670,15823.9492,out_cover_Q3_interval.txt
+E,"{3, 5}",1e+08,117415,0,1.005101,10342.3367,10343.3709,out_cover_Q35_envelope.txt
+E,{3},1e+10,122023,0,0.036773,15822.3670,15823.9492,out_cover_Q3_envelope.txt
+U,{3},1e+08,117415,85342,-3.405836,118051.8679,118063.6730,out_cover_Q3_uniform1.146.txt
+U,"{3, 5}",1e+08,117415,71182,-1.671836,42861.5324,42865.8185,out_cover_Q35_uniformsup.txt

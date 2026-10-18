@@ -95,3 +95,18 @@ hashes in `SHA256SUMS` refer to the published versions. The numerical content is
 
 Code: MIT (`LICENSE`). Paper text and figures: all rights reserved by the author
 unless stated otherwise. See `CITATION.cff` and `THIRD_PARTY_NOTICES.md`.
+
+## Result tables
+
+`results/` contains the numerical tables of the paper as CSV, extracted from the certificate
+outputs by `python results/extract_tables.py` (run from the repository root):
+
+| File | Paper | Content |
+|---|---|---|
+| `table1_decades.csv` | Table 1 | minimal certified margin per decade, Q = {3,5}, per-cell K |
+| `table2_analytic.csv` | Table 2 | analytic range: constants, s, alpha and certified M_lo(log Z) |
+| `table3_margins.csv` | Table 3 | minimal certified margins of the finite range, scenarios I / E / U |
+| `table4_omega31.csv` | Table 4 | exploratory floating-point profiles for Omega(ab) <= 31 (not certified) |
+
+`certificate/profiles/` holds the script and output of the Omega(ab) <= 31 profiles
+(`python profile_general.py Q LIM c r label`, float64, a grid of 60 points).
