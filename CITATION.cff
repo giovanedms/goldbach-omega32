@@ -9,7 +9,8 @@ authors:
     affiliation: "Instituto Tecnológico de Aeronáutica (ITA)"
     orcid: "https://orcid.org/0009-0003-7042-3869"
 date-released: "2026-10-18"
-version: "1.0.0"
+version: "1.0.1"
+doi: "10.5281/zenodo.23456153"
 license: MIT
 repository-code: "https://github.com/giovanedms/goldbach-omega32"
 keywords:
