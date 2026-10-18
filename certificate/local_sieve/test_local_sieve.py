@@ -1,16 +1,16 @@
-#!/usr/bin/env python3
 """Checks of the Lambda^- Lambda^2 lower bound under the LOCAL dimension condition.
 
-(A1)-(A3) are exact rational checks (with the weights w(d) replaced by rational approximations);
-(A4), (A4a), (A5), (A6) are floating-point checks with absolute tolerance <= 1e-9; (A6) checks
+(A1)-(A3) are exact rational checks (with the weights psi(d) replaced by rational approximations);
+(A4), (A4a) are floating-point checks with tolerance 1e-9 relative to V(z)^{-1} (resp. |mid|); (A5), (A6) use
+absolute tolerances 1e-9 / 1e-12; (A6) checks
 Proposition 4.4 and Theorem 4.1 in the range s >= 2k+3 (kappa = 2, smallest K allowed at z).
 Checks every link of Appendix A for the actual sequence
 a_n = n(N-n)/2 (N odd) or n(N-n) (N even), pre-sieved by Q, and for random densities:
 
   (A1) S(A,z) >= sum_d lambda_d |A_d|                     (combinatorial inequality, exact)
   (A2) sum_d lambda_d g(d) == V(D,z) from identity (2.3)  (algebraic identity, exact)
-  (A3) |rho_e| <= 1  and  |lambda_d| <= 2 tau_4(d)         (weights)
-  (A4) J^2 V(D,z) >= V(z)^{-1} - (log(Yz^2)/log z) I(Y/z,z) (main-term bound; floats with margin)
+  (A3) |theta_e| <= 1  and  |lambda_d| <= 2 tau_4(d)         (weights)
+  (A4) J^2 V(D,z) >= V(z)^{-1} - (log(Y_0 z^2)/log z) I(Y_0/z,z) (main-term bound; floats with margin)
   (A5) S(A,z) >= X V(z) (1 - c I V) - 2 R_4               (the assembled inequality)
 
 Usage: python test_local_sieve.py [n_random]

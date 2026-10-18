@@ -1169,7 +1169,8 @@ $d<D$ and the inequality $S(\cA,z)\ge\sum_d\lambda_d|\cA_d|$ are checked in
 exact rational arithmetic; the bound of A.3, Proposition~\ref{prop:rankinK}
 and the conclusion $S(\cA,z)\ge XV(z)F(s,k)-2R_4(\cA,D)$ (with $\kappa=2$
 and the smallest $K$ allowed at this $z$) are checked in floating point
-with an absolute tolerance of $10^{-9}$, the last two in the $20\,328$ cases
+with a tolerance of $10^{-9}$, relative to $V(z)^{-1}$ for the bound of
+A.3 and absolute for the last two, which are checked in the $20\,328$ cases
 with $s\ge2k+3$, of which $11\,181$ have $F(s,k)>0$. The test checks the
 algebra; it is not part of the proof.
 
@@ -1239,7 +1240,7 @@ f44c4b01fddeb9b4b6e933fe291daedf3b84247dce68b24abe6490bce1c44b9a  rlib.py
 0acb487e5dd3bffef14ce2c5a9b358d41cf19b06e53015349af49c713f236c5a  run_cover.py
 84483ca099c5029ab112e445ab48e26542f2cf9af4f2770745d56628c7732356  analytic.py
 4e901d77dfc171bce886f9924b9d8a0e59eb26b0b517a7ec53198cb7c552d86f  primes_blocks.py
-5a34c90bec944f239fdb33e49739f5b67747c90ff43f37a2dcba4d72b940d6ac  test_local_sieve.py
+5efb2514a9e8bec4db66844a00723fb703ac50ed3d973475fa98c4966336151d  test_local_sieve.py
 5e21da3a192ba96e952c4e29602894e695703b6a7c49a7526e93fd5c97457ee1  out_test_local_sieve.txt
 \end{verbatim}
 \endgroup

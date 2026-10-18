@@ -1,6 +1,6 @@
 Highlights
 - Every N >= 2 is a sum a+b with Omega(ab) <= 32, improving the bound 33
-- Both parities of N are certified in ball arithmetic
+- With a uniform dimension constant the method fails; per-interval ones succeed
 - Per-interval dimension constants and pre-sieving by 3 and 5 close the odd case
-- The finite range is certified in ball arithmetic over 117,415 intervals
+- Finite range certified in ball arithmetic: 117,415 + 118,322 intervals
 - The certificate is public, deterministic and reproducible
